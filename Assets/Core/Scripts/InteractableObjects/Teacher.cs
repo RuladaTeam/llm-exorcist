@@ -22,6 +22,7 @@ public class Teacher : InteractableObject
     
     private void Update()
     {
+
         if (!_dialogueViewer.IsCurrentViewerActive() || _setAnimParameters.Count == 0)
         {
             return;

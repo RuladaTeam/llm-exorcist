@@ -27,11 +27,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        Debug.Log(GameStateManager.State);
-    }
-
     private void Start()
     {
         Door.OnDoorOpen += Door_OnDoorOpen;
