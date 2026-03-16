@@ -42,11 +42,20 @@ public class Player : MonoBehaviour
             CanAct = false;
             _isDialogue = true;
         }
+        else if (Journal.IsJournalOpen)
+        {
+            CanAct = false;
+        }
         else if(_isDialogue)
         {
             _isDialogue = false;
             CanAct = true;
         }
+        else if (!Journal.IsJournalOpen)
+        {
+            CanAct = true;
+        }
+
         HandleMovement();
         _playerVisual.UpdateVisual(_movementVector.x, _movementVector.y);
     }

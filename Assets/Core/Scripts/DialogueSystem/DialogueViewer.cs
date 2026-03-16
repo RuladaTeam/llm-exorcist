@@ -40,6 +40,9 @@ public class DialogueViewer : MonoBehaviour
     private DialogueWriter _dialogueWriter;
 
     public static event EventHandler OnCreditBookAction;
+    public static event Action<DialogueBaseClass> OnPhraseChanged;
+    public static event Action OnDialogueEnded;
+
     public static bool IsGoing { get; private set; } = false;
     public DialogueBaseClass CurrentDialogueElement { get; private set; }
 
@@ -185,6 +188,8 @@ public class DialogueViewer : MonoBehaviour
                 {
                     _canResulting = _dialogueBunch.NecessaryPhrasesForResult.Contains(CurrentDialogueElement.simplePhrase.InputText);
                 }
+
+                OnPhraseChanged?.Invoke(CurrentDialogueElement);
             }
             if (CurrentDialogueElement.TypeOfDialogue == TypeOfDialogue.Answers)
             {
