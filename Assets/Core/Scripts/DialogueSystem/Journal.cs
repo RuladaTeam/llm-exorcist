@@ -40,18 +40,11 @@ public class Journal : MonoBehaviour
         JournalSimplePhrase currentSimplePhrase = Instantiate(_simplePhrase, _journalContent).GetComponent<JournalSimplePhrase>();
         currentSimplePhrase.Name.text = phraseData.simplePhrase.InputName;
         currentSimplePhrase.Text.text = phraseData.simplePhrase.InputText;
-
-        LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)currentSimplePhrase.transform);
-        LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)_journalContent);
     }
 
     private void CreateSpace()
     {
         Instantiate(_space, _journalContent);
-
-        _journalContent.GetComponent<LayoutGroup>().enabled = false;
-        _journalContent.GetComponent<LayoutGroup>().enabled = true;
-        LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)_journalContent);
     }
 
     private void OpenCloseJournal()

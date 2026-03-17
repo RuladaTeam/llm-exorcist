@@ -124,6 +124,7 @@ public class DialogueViewer : MonoBehaviour
         IsGoing = false;
         _dialogueAnimator.SetTrigger(_triggerForEndName);
         OnCreditBookAction?.Invoke(this, EventArgs.Empty);
+        OnDialogueEnded?.Invoke();
 
         if (_dialogueBunch.IsReputationable)
         {
