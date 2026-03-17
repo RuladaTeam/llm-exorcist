@@ -55,7 +55,7 @@ PrefabInstance:
     - target: {fileID: 5905011266673196597, guid: 640d450748e8c1141856fcf1752e0cfe, type: 3}
       propertyPath: _dialogueBunch
       value: 
-      objectReference: {fileID: 11400000, guid: e77b2b7b76676d041a7d5fb3d8059aea, type: 2}
+      objectReference: {fileID: 11400000, guid: 2e7c1a40d7cd49243becae4b43e364cc, type: 2}
     - target: {fileID: 5905011266673196597, guid: 640d450748e8c1141856fcf1752e0cfe, type: 3}
       propertyPath: _isActiveOnStart
       value: 1
