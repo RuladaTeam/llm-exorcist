@@ -4,7 +4,7 @@ using UnityEngine;
 public class Chest : InteractableObject
 {
     [SerializeField] private Key _neededKey;
-    [SerializeField] GameObject _insideInformation;
+    [SerializeField] DialogueViewer _insideInformation;
 
     private void OnEnable()
     {
@@ -22,7 +22,7 @@ public class Chest : InteractableObject
     {
         if (_isInteractable)
         {
-            Instantiate(_insideInformation);
+            StartCoroutine(_insideInformation.Starter());
             Deselect();
             _isInteractable = false;
         }
