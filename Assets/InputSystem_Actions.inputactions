@@ -990,6 +990,45 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Chat",
+            "id": "f8e438cd-f783-4bd4-9418-c8a1ddf6f576",
+            "actions": [
+                {
+                    "name": "ChatConfirm",
+                    "type": "Button",
+                    "id": "ce6eba05-3205-482e-a276-651475224891",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "28b5d511-584d-4ed4-ab37-d2339ebfc73f",
+                    "path": "<Keyboard>/enter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ChatConfirm",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a917e4c1-9c1c-45ac-afbe-50885a01bd7b",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ChatConfirm",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [
