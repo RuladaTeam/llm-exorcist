@@ -1372,6 +1372,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 153d70a295727c54ab95cafcd5d6e4c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  serverUrl: http://192.168.0.228/exorcist/api/chat?msg="wfwfw"
   _inputField: {fileID: 1068086487}
   _contentTransform: {fileID: 1019428554}
   _scrollRect: {fileID: 889486746}

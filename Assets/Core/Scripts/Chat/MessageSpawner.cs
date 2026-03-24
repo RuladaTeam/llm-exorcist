@@ -8,17 +8,12 @@ using UnityEngine.UI;
 
 public class MessageSpawner : MonoBehaviour
 {
-    private class MessageRequest
-    {
-        public string message;
-    }
-
     private class MessageResponse
     {
-        public string message;
+        public string response;
     }
 
-    [SerializeField] private string serverUrl;
+    [SerializeField] private string serverUrl = "http://192.168.0.228/exorcist/api/chat";
     [Space(30)]
     [SerializeField] private TMP_InputField _inputField;
     [SerializeField] private Transform _contentTransform;
@@ -66,14 +61,17 @@ public class MessageSpawner : MonoBehaviour
         _isRequestInProgress = true;
         _inputField.interactable = false;
 
-        MessageRequest request = new() { message = text };
-        string json = JsonUtility.ToJson(request);
+        // Формируем URL с параметром msg
+        // UnityWebRequest.EscapeURL кодирует специальные символы для безопасной передачи
+        string escapedMessage = UnityWebRequest.EscapeURL(text);
+        string fullUrl = $"{serverUrl}?msg={escapedMessage}";
 
-        using (UnityWebRequest www = UnityWebRequest.PostWwwForm(serverUrl, ""))
+        Debug.Log($"Отправка запроса: {fullUrl}");
+
+        // Используем GET запрос вместо POST
+        using (UnityWebRequest www = UnityWebRequest.Get(fullUrl))
         {
-            www.uploadHandler = new UploadHandlerRaw(System.Text.Encoding.UTF8.GetBytes(json));
             www.downloadHandler = new DownloadHandlerBuffer();
-            www.SetRequestHeader("Content-Type", "application/json");
 
             yield return www.SendWebRequest();
 
@@ -81,23 +79,29 @@ public class MessageSpawner : MonoBehaviour
             {
                 try
                 {
-                    TextMeshProUGUI currentMessage = Instantiate(_AIMessage, _contentTransform).transform.GetComponentInChildren<TextMeshProUGUI>();
                     MessageResponse response = JsonUtility.FromJson<MessageResponse>(www.downloadHandler.text);
-                    currentMessage.text = response.message;
+
+                    TextMeshProUGUI currentMessage = Instantiate(_AIMessage, _contentTransform).transform.GetComponentInChildren<TextMeshProUGUI>();
+                    currentMessage.text = response.response;
+
+                    Debug.Log($"Получен ответ: {response.response}");
                 }
                 catch (System.Exception e)
                 {
-                    Debug.LogError($"Error: {e.Message}");
+                    Debug.LogError($"Ошибка парсинга ответа: {e.Message}");
+                    Debug.Log($"Сырой ответ сервера: {www.downloadHandler.text}");
                 }
             }
             else
             {
-                Debug.LogError($"Request error: {www.error}");
+                Debug.LogError($"Ошибка запроса: {www.error}");
+                Debug.LogError($"HTTP код: {www.responseCode}");
             }
         }
 
         _isRequestInProgress = false;
         _inputField.interactable = true;
+        _inputField.ActivateInputField(); // Возвращаем фокус на поле ввода
     }
 
     private void SpawnMessage(InputAction.CallbackContext obj)
@@ -106,15 +110,15 @@ public class MessageSpawner : MonoBehaviour
         {
             TextMeshProUGUI currentMessage = Instantiate(_myMessage, _contentTransform).transform.GetComponentInChildren<TextMeshProUGUI>();
             currentMessage.text = _inputField.text;
-            _inputField.text = "";
 
             StartCoroutine(SendMessageCoroutine(_inputField.text));
+
+            _inputField.text = "";
 
             LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)_contentTransform);
             LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)_scrollRect.transform);
 
             _scrollRect.verticalNormalizedPosition = 0f;
-
         }
     }
 }
