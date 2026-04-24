@@ -2,7 +2,6 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using System.Collections;
-using System.Collections.Generic;
 using System;
 using DG.Tweening;
 
@@ -197,7 +196,12 @@ public class DialogueViewer : MonoBehaviour
                 for (int i = 0; i < CurrentDialogueElement.Answers.Count; i++)
                 {
                     MenuButton currentAnswerButton = Instantiate(_answerButtonPrefab, _answersChamberTransform).GetComponent<MenuButton>();
-                    DialogueBaseClass nextDialogueElement = CurrentDialogueElement.Answers[i].NextDialogueBaseClasses[0];
+                    DialogueBaseClass nextDialogueElement = null;
+                    if (CurrentDialogueElement.Answers[i].NextDialogueBaseClasses.Count > 0)
+                    {
+                        nextDialogueElement = CurrentDialogueElement.Answers[i].NextDialogueBaseClasses[0];
+                    }
+
                     float addReputation = CurrentDialogueElement.Answers[i].AddReputation;
                     currentAnswerButton.OnPressMethod.AddListener(() => SetNewElementAtAnswerBufer(nextDialogueElement, addReputation));
                     currentAnswerButton.OnPressMethod.AddListener(ViewDialogue);
@@ -258,7 +262,7 @@ public class DialogueViewer : MonoBehaviour
 
     private void SetNewElementAtAnswerBufer(DialogueBaseClass nextDialogueElement, float addReputation)
     {
-        CurrentDialogueElement = _dialogueSetter.SetNewElementAtAnswer(nextDialogueElement, addReputation, CurrentDialogueElement);
+        CurrentDialogueElement = _dialogueSetter.SetNewElementAtAnswer(nextDialogueElement, addReputation, _dialogueBunch.CurrentDialogue, CurrentDialogueElement);
     }
 
     private void WritingTextCompletion()

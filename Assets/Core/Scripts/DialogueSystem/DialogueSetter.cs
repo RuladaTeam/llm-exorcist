@@ -45,38 +45,35 @@ public class DialogueSetter
     public DialogueBaseClass SetNewElementAtSimplePhrase(List<DialogueBaseClass> dialogue, DialogueBaseClass currentDialogueElement)
     {
         DialogueBaseClass nextDialogueElement = null;
-        if (currentDialogueElement.TypeOfDialogue == TypeOfDialogue.SimplePhrases)
+        if (dialogue.Contains(currentDialogueElement))
         {
-            if (dialogue.Contains(currentDialogueElement))
+            if (dialogue[^1] == currentDialogueElement)
             {
-                if (dialogue[^1] == currentDialogueElement)
+                if (CheckListOfPhrases() == true)
                 {
-                    if (CheckListOfPhrases() == true)
-                    {
-                        nextDialogueElement = _nextSimplePhrases[^1];
-                        _nextSimplePhrases.RemoveAt(_nextSimplePhrases.Count - 1);
-                        return nextDialogueElement;
-                    }
-                    else
-                    {
-                        return null;
-                    }
+                    nextDialogueElement = _nextSimplePhrases[^1];
+                    _nextSimplePhrases.RemoveAt(_nextSimplePhrases.Count - 1);
+                    return nextDialogueElement;
                 }
-
-                nextDialogueElement = dialogue[dialogue.IndexOf(currentDialogueElement) + 1];
-                return nextDialogueElement;
-            }
-            for (int i = 0; i < dialogue.Count; i++)
-            {
-                if (dialogue[i].TypeOfDialogue == TypeOfDialogue.Answers)
+                else
                 {
-                    foreach (DialogueBaseClass.Answer answer in dialogue[i].Answers)
+                    return null;
+                }
+            }
+
+            nextDialogueElement = dialogue[dialogue.IndexOf(currentDialogueElement) + 1];
+            return nextDialogueElement;
+        }
+        for (int i = 0; i < dialogue.Count; i++)
+        {
+            if (dialogue[i].TypeOfDialogue == TypeOfDialogue.Answers)
+            {
+                foreach (DialogueBaseClass.Answer answer in dialogue[i].Answers)
+                {
+                    nextDialogueElement = SetNewElementAtSimplePhrase(answer.NextDialogueBaseClasses, currentDialogueElement);
+                    if (nextDialogueElement != null)
                     {
-                        nextDialogueElement = SetNewElementAtSimplePhrase(answer.NextDialogueBaseClasses, currentDialogueElement);
-                        if (nextDialogueElement != null)
-                        {
-                            return nextDialogueElement;
-                        }
+                        return nextDialogueElement;
                     }
                 }
             }
@@ -84,10 +81,15 @@ public class DialogueSetter
         return null;
     }
 
-    public DialogueBaseClass SetNewElementAtAnswer(DialogueBaseClass nextDialogueElement, float addReputation, DialogueBaseClass currentDialogueElement)
+    public DialogueBaseClass SetNewElementAtAnswer(DialogueBaseClass nextDialogueElement, float addReputation, List<DialogueBaseClass> dialogue, DialogueBaseClass currentDialogueElement)
     {
         if (currentDialogueElement.TypeOfDialogue == TypeOfDialogue.Answers)
         {
+            if(nextDialogueElement == null)
+            {
+                return SetNewElementAtSimplePhrase(dialogue, currentDialogueElement);
+            }
+
             if(addReputation > 0)
             {
                 OnAnswerAction?.Invoke(this, new AnswerActionEventArgs { isReputationAdded = true });

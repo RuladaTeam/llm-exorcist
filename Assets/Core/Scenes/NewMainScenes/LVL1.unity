@@ -2048,7 +2048,7 @@ GameObject:
   - component: {fileID: 1125921711}
   - component: {fileID: 1125921710}
   m_Layer: 0
-  m_Name: MathsTeacher
+  m_Name: Table
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
