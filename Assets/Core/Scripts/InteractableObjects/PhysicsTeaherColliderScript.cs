@@ -1,7 +1,7 @@
 using NUnit.Framework;
 using System.Collections.Generic;
 using UnityEngine;
-using static Teacher;
+using static DialogueCharacter;
 
 public class PhysicsTeaherColliderScript : MonoBehaviour
 {

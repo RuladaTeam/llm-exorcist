@@ -93,6 +93,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _interactiveSign: {fileID: 0}
+  _isStatable: 0
   _nessecaryState: 0
 --- !u!61 &164748015328663981
 BoxCollider2D:

@@ -227,6 +227,6 @@ public class GameManager : MonoBehaviour
         }
         GameStateManager.State = GameState.MainMenu;
 
-        SceneManager.LoadScene(SceneInfo.MAIN_MENU_SCENE);
+        SceneManager.LoadScene(SceneInfo.MAP_SCENE);
     }
 }

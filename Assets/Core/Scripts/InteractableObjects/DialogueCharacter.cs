@@ -1,8 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
-public class Teacher : InteractableObject
+public class DialogueCharacter : InteractableObject
 {
     [System.Serializable]
     public struct SetAnimParameter
@@ -23,10 +22,11 @@ public class Teacher : InteractableObject
     private void Update()
     {
 
-        if (!_dialogueViewer.IsCurrentViewerActive() || _setAnimParameters.Count == 0)
+        if (!_dialogueViewer.IsCurrentViewerActive() || _setAnimParameters.Count == 0 || _animator == null || _setAnimParameters.Count == 0)
         {
             return;
         }
+
         Deselect();
         foreach( SetAnimParameter setAnimParameter in _setAnimParameters)
         {
