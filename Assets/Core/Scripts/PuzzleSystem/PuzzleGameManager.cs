@@ -1,15 +1,24 @@
+using System;
+using System.Linq;
+using DG.Tweening;
 using UnityEngine;
 
 namespace Core.Scripts.PuzzleSystem
 {
     public class PuzzleGameManager : MonoBehaviour
     {
-        [Header("UI elements")]
+        [SerializeField] private PuzzleSpawner[] _puzzleSpawners;
         [SerializeField] private GameObject _puzzleCanvas;
-        [SerializeField] private Transform _workspaceTransform;
-        [Header("Prefabs")]
-        [SerializeField] private GameObject _puzzleItemPrefab;
         [SerializeField] private GameObject _containerPrefab;
+
+        private RectTransform _workspaceTransform;
+        private RectTransform _spawnersSpaceTransform;
+
+        private void Start()
+        {
+            _workspaceTransform = GameObject.FindGameObjectWithTag("CodeSpace").GetComponent<RectTransform>();
+            _spawnersSpaceTransform = GameObject.FindGameObjectWithTag("BlocksSpace").GetComponent<RectTransform>();
+        }
 
         private void OnEnable()
         {
@@ -49,18 +58,63 @@ namespace Core.Scripts.PuzzleSystem
 
         private void CreatePuzzle(bool isActive, string puzzleText, int orderInSequence = -1)
         {
-            var puzzle = Instantiate(_puzzleItemPrefab, _workspaceTransform).GetComponent<PuzzleItem>();
-            puzzle.Initialize(isActive, orderInSequence, puzzleText);
-
-            InstantiatePuzzleContainer(puzzle, transform.position, transform);
+            foreach (var spawner in _puzzleSpawners)
+            {
+                if (spawner.SpawnedPuzzle == null)
+                {
+                    spawner.CreatePuzzle(isActive, puzzleText, orderInSequence);
+                    return;
+                }
+            }
         }
 
-        private GameObject InstantiatePuzzleContainer(PuzzleItem nestedPuzzle, Vector3 position, Transform parent = null)
+        public bool IsOnWorkspace(Vector2 point)
         {
-            return InstantiatePuzzleContainer(new PuzzleItem[] { nestedPuzzle }, position, parent);
+            return RectTransformUtility.RectangleContainsScreenPoint(_workspaceTransform, point)
+                && !RectTransformUtility.RectangleContainsScreenPoint(_spawnersSpaceTransform, point);
         }
 
-        public GameObject InstantiatePuzzleContainer(PuzzleItem[] nestedPuzzles, Vector3 position, Transform parent = null)
+        public void MoveToPosition(Transform targetTransform, Vector2 position, Action onComplete, Transform parent = null)
+        {
+            var originalParent = targetTransform.parent;
+
+            targetTransform.SetParent(targetTransform.root);
+            targetTransform.DOMove(position, .3f)
+                .SetEase(Ease.InOutSine)
+                .OnComplete(() =>
+                {
+                    if (parent != null)
+                        targetTransform.SetParent(parent);
+                    else
+                        targetTransform.SetParent(originalParent);
+
+                    onComplete?.Invoke();
+                });
+        }
+
+        public void SetToRoot(Transform targetTransform)
+        {
+            targetTransform.SetParent(targetTransform.root);
+        }
+
+        public void SetToWorkspace(Transform targetTransform)
+        {
+            targetTransform.SetParent(_workspaceTransform.transform);
+        }
+
+        public void MergeContainers(PuzzleContainer fromContainer, PuzzleContainer toContainer, int startIndex = -1)
+        {
+            var puzzles = fromContainer.GetNestedPuzzlesArray();
+
+            if (startIndex == -1)
+                toContainer.PushPuzzle(puzzles);
+            else
+                toContainer.PushPuzzle(puzzles, startIndex);
+
+            Destroy(fromContainer.gameObject);
+        }
+
+        public GameObject InstantiateContainer(PuzzleItem[] nestedPuzzles, Vector3 position, Transform parent = null)
         {
             // by default is being instantiated as a workspaceTransform's child
             parent = parent == null ? _workspaceTransform.transform : parent;
