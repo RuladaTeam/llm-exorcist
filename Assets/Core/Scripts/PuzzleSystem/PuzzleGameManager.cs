@@ -16,8 +16,10 @@ namespace Core.Scripts.PuzzleSystem
 
         private void Start()
         {
-            _workspaceTransform = GameObject.FindGameObjectWithTag("CodeSpace").GetComponent<RectTransform>();
-            _spawnersSpaceTransform = GameObject.FindGameObjectWithTag("BlocksSpace").GetComponent<RectTransform>();
+            _workspaceTransform = GameObject.FindGameObjectWithTag("CodeSpace")
+                .GetComponent<RectTransform>();
+            _spawnersSpaceTransform = GameObject.FindGameObjectWithTag("BlocksSpace")
+                .GetComponent<RectTransform>();
         }
 
         private void OnEnable()
@@ -44,6 +46,10 @@ namespace Core.Scripts.PuzzleSystem
             {
                 EndPuzzle();
             }
+            if (Input.GetKeyDown(KeyCode.C))
+            {
+                CreatePuzzle(true, "Test Puzzle", 0);
+            }
         }
 
         private void StartPuzzle()
@@ -58,6 +64,7 @@ namespace Core.Scripts.PuzzleSystem
 
         private void CreatePuzzle(bool isActive, string puzzleText, int orderInSequence = -1)
         {
+            //todo: clear spawners if they have puzzles 
             foreach (var spawner in _puzzleSpawners)
             {
                 if (spawner.SpawnedPuzzle == null)
@@ -78,7 +85,7 @@ namespace Core.Scripts.PuzzleSystem
         {
             var originalParent = targetTransform.parent;
 
-            targetTransform.SetParent(targetTransform.root);
+            targetTransform.SetParent(transform.GetChild(0));
             targetTransform.DOMove(position, .3f)
                 .SetEase(Ease.InOutSine)
                 .OnComplete(() =>
@@ -94,7 +101,7 @@ namespace Core.Scripts.PuzzleSystem
 
         public void SetToRoot(Transform targetTransform)
         {
-            targetTransform.SetParent(targetTransform.root);
+            targetTransform.SetParent(transform.GetChild(0));
         }
 
         public void SetToWorkspace(Transform targetTransform)

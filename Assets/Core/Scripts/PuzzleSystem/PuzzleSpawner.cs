@@ -14,6 +14,7 @@ namespace Core.Scripts.PuzzleSystem
         {
             // looooool i hate myself
             _puzzleGameManager = transform.parent.parent.parent.parent.parent.GetComponent<PuzzleGameManager>();
+            Debug.Log(_puzzleGameManager);
         }
 
         public void CreatePuzzle(bool isActive, string puzzleText, int orderInSequence = -1)
@@ -27,7 +28,7 @@ namespace Core.Scripts.PuzzleSystem
 
             var puzzle = Instantiate(_puzzleItemPrefab, transform).GetComponent<PuzzleItem>();
             puzzle.Initialize(isActive, orderInSequence, puzzleText);
-
+            puzzle.SetSpawner(this);
             InstantiatePuzzleContainer(puzzle, transform.position, transform);
 
             SpawnedPuzzle = puzzle;
