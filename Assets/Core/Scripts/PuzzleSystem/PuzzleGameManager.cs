@@ -7,9 +7,14 @@ namespace Core.Scripts.PuzzleSystem
 {
     public class PuzzleGameManager : MonoBehaviour
     {
-        [SerializeField] private PuzzleSpawner[] _puzzleSpawners;
+        // subscribe to this event to get notified when the puzzle is solved
+        public static event Action OnPuzzleSolved;
+
+        [SerializeField] private int _totalActivePuzzles;
         [SerializeField] private GameObject _puzzleCanvas;
+        [SerializeField] private Transform _spawnerSpaceTransform;
         [SerializeField] private GameObject _containerPrefab;
+        [SerializeField] private GameObject _spawnerPrefab;
 
         private RectTransform _workspaceTransform;
         private RectTransform _spawnersSpaceTransform;
@@ -64,15 +69,37 @@ namespace Core.Scripts.PuzzleSystem
 
         private void CreatePuzzle(bool isActive, string puzzleText, int orderInSequence = -1)
         {
-            //todo: clear spawners if they have puzzles 
-            foreach (var spawner in _puzzleSpawners)
+            var spawner = Instantiate(_spawnerPrefab, _spawnerSpaceTransform).GetComponent<PuzzleSpawner>();
+
+            spawner.CreatePuzzle(isActive, puzzleText, orderInSequence);
+        }
+
+        private void CalculateResult(PuzzleContainer container)
+        {
+            var puzzles = container.GetNestedPuzzlesArray();
+
+            int currentSequenceIndex = 0;
+            foreach (var puzzle in puzzles)
             {
-                if (spawner.SpawnedPuzzle == null)
+                if (!puzzle.IsActive)
+                    continue;
+
+                if (puzzle.OrderInSequence != currentSequenceIndex)
                 {
-                    spawner.CreatePuzzle(isActive, puzzleText, orderInSequence);
+                    Debug.Log("Puzzles are not in the right order");
                     return;
                 }
+                currentSequenceIndex++;
             }
+
+            if (currentSequenceIndex != _totalActivePuzzles)
+            {
+                Debug.Log("Not all active puzzles are connected (or too many if you have a mistake in code)");
+                return;
+            }
+
+            Debug.Log("Puzzle is solved!");
+            OnPuzzleSolved?.Invoke();
         }
 
         public bool IsOnWorkspace(Vector2 point)
@@ -85,7 +112,7 @@ namespace Core.Scripts.PuzzleSystem
         {
             var originalParent = targetTransform.parent;
 
-            targetTransform.SetParent(transform.GetChild(0));
+            targetTransform.SetParent(_puzzleCanvas.transform);
             targetTransform.DOMove(position, .3f)
                 .SetEase(Ease.InOutSine)
                 .OnComplete(() =>
@@ -101,7 +128,7 @@ namespace Core.Scripts.PuzzleSystem
 
         public void SetToRoot(Transform targetTransform)
         {
-            targetTransform.SetParent(transform.GetChild(0));
+            targetTransform.SetParent(_puzzleCanvas.transform);
         }
 
         public void SetToWorkspace(Transform targetTransform)
@@ -119,12 +146,14 @@ namespace Core.Scripts.PuzzleSystem
                 toContainer.PushPuzzle(puzzles, startIndex);
 
             Destroy(fromContainer.gameObject);
+
+            CalculateResult(toContainer);
         }
 
         public GameObject InstantiateContainer(PuzzleItem[] nestedPuzzles, Vector3 position, Transform parent = null)
         {
             // by default is being instantiated as a workspaceTransform's child
-            parent = parent == null ? _workspaceTransform.transform : parent;
+            parent = parent == null ? _puzzleCanvas.transform : parent;
 
             var container = Instantiate(_containerPrefab, position, Quaternion.identity, parent)
                 .GetComponent<PuzzleContainer>();

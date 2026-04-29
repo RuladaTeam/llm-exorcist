@@ -10,8 +10,8 @@ namespace Core.Scripts.PuzzleSystem
         public static event Action<PuzzleItem> OnPuzzleDrag;
         public static event Action<PuzzleItem> OnPuzzleDrop;
 
-        [SerializeField] private bool _isActive;
-        [SerializeField][Range(0, 10)] private int _orderInSequence;
+        [field: SerializeField] public bool IsActive { get; private set; }
+        [field: SerializeField] public int OrderInSequence { get; private set; }
         [field: SerializeField] public PuzzleContainer ParentContainer { get; private set; }
         [SerializeField] private RectTransform _connectionAreaRect;
 
@@ -40,8 +40,8 @@ namespace Core.Scripts.PuzzleSystem
 
         public void Initialize(bool isActive, int orderInSequence, string puzzleText)
         {
-            _isActive = isActive;
-            _orderInSequence = orderInSequence;
+            IsActive = isActive;
+            OrderInSequence = orderInSequence;
             _puzzleText.text = puzzleText;
         }
 

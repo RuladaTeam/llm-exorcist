@@ -31,7 +31,7 @@ namespace Core.Scripts.PuzzleSystem
                 var grabbablePuzzles = FormPuzzleArrayFromPuzzle(selectedPuzzleIndex);
 
                 // set a parent of the created container not to affect this container but make the new one overlap other puzzles
-                _nestedPuzzles[0].GetPuzzleGameManager().InstantiateContainer(grabbablePuzzles, transform.position, transform.root);
+                _nestedPuzzles[0].GetPuzzleGameManager().InstantiateContainer(grabbablePuzzles, transform.position);
                 RemovePuzzle(grabbablePuzzles);
             }
 

@@ -14,7 +14,6 @@ namespace Core.Scripts.PuzzleSystem
         {
             // looooool i hate myself
             _puzzleGameManager = transform.parent.parent.parent.parent.parent.GetComponent<PuzzleGameManager>();
-            Debug.Log(_puzzleGameManager);
         }
 
         public void CreatePuzzle(bool isActive, string puzzleText, int orderInSequence = -1)
