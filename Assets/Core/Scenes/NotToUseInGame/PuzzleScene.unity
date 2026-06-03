@@ -329,7 +329,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2063381739700262708, guid: 499309bbf12d6d34683e2483d11eeda9, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -450.7813
+      value: -410
       objectReference: {fileID: 0}
     - target: {fileID: 2637259421484581434, guid: 499309bbf12d6d34683e2483d11eeda9, type: 3}
       propertyPath: m_AnchorMax.y
@@ -615,6 +615,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6771995281010139849, guid: 499309bbf12d6d34683e2483d11eeda9, type: 3}
+      propertyPath: _spawnerPrefab
+      value: 
+      objectReference: {fileID: 352626171054700826, guid: c624fad004253ef4ba59b9e7395ebe4c, type: 3}
+    - target: {fileID: 6771995281010139849, guid: 499309bbf12d6d34683e2483d11eeda9, type: 3}
+      propertyPath: _spawnerSpaceTransform
+      value: 
+      objectReference: {fileID: 1548444268}
     - target: {fileID: 8331677070922770605, guid: 499309bbf12d6d34683e2483d11eeda9, type: 3}
       propertyPath: m_SizeDelta.x
       value: 500
@@ -845,8 +853,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 298293412}
   m_HandleRect: {fileID: 298293411}
   m_Direction: 2
-  m_Value: 0
-  m_Size: 1
+  m_Value: 0.5
+  m_Size: 0.9111111
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

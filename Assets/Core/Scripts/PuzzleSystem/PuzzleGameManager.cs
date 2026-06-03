@@ -8,13 +8,15 @@ namespace Core.Scripts.PuzzleSystem
     public class PuzzleGameManager : MonoBehaviour
     {
         // subscribe to this event to get notified when the puzzle is solved
-        public static event Action OnPuzzleSolved;
+        //public static event Action OnPuzzleSolved;
 
         [SerializeField] private int _totalActivePuzzles;
         [SerializeField] private GameObject _puzzleCanvas;
         [SerializeField] private Transform _spawnerSpaceTransform;
         [SerializeField] private GameObject _containerPrefab;
         [SerializeField] private GameObject _spawnerPrefab;
+        [Space(10)] 
+        [SerializeField] private PuzzleDoor _puzzleDoor;
 
         private RectTransform _workspaceTransform;
         private RectTransform _spawnersSpaceTransform;
@@ -25,12 +27,15 @@ namespace Core.Scripts.PuzzleSystem
                 .GetComponent<RectTransform>();
             _spawnersSpaceTransform = GameObject.FindGameObjectWithTag("BlocksSpace")
                 .GetComponent<RectTransform>();
+
+            EndPuzzle();
+
         }
 
         private void OnEnable()
         {
-            //SomeEventSystem.OnPuzzleStart += StartPuzzle;
-            //SomeEventSystem.OnPuzzleEnd += EndPuzzle;
+            _puzzleDoor.OnPuzzleStart += StartPuzzle;
+            _puzzleDoor.OnPuzzleEnd += EndPuzzle;
             //SomeEventSystem.OnCreatePuzzle += CreatePuzzle;
         }
 
@@ -43,14 +48,14 @@ namespace Core.Scripts.PuzzleSystem
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.W))
-            {
-                StartPuzzle();
-            }
-            if (Input.GetKeyDown(KeyCode.S))
-            {
-                EndPuzzle();
-            }
+            //if (Input.GetKeyDown(KeyCode.W))
+            //{
+            //    StartPuzzle();
+            //}
+            //if (Input.GetKeyDown(KeyCode.S))
+            //{
+            //    EndPuzzle();
+            //}
             if (Input.GetKeyDown(KeyCode.C))
             {
                 CreatePuzzle(true, "Test Puzzle", 0);
@@ -98,8 +103,10 @@ namespace Core.Scripts.PuzzleSystem
                 return;
             }
 
-            Debug.Log("Puzzle is solved!");
-            OnPuzzleSolved?.Invoke();
+            //Debug.Log("Puzzle is solved!");
+            //OnPuzzleSolved?.Invoke();
+
+            _puzzleDoor.OpenDoor();
         }
 
         public bool IsOnWorkspace(Vector2 point)
