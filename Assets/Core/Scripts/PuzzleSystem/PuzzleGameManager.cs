@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using Assets.Core.Scripts.PuzzleSystem;
 using DG.Tweening;
 using UnityEngine;
 
@@ -72,11 +73,11 @@ namespace Core.Scripts.PuzzleSystem
             _puzzleCanvas.SetActive(false);
         }
 
-        private void CreatePuzzle(bool isActive, string puzzleText, int orderInSequence = -1)
+        private void CreatePuzzle(object sender, PuzzleItemDataEventArgs puzzleItemDataEventArgs)
         {
             var spawner = Instantiate(_spawnerPrefab, _spawnerSpaceTransform).GetComponent<PuzzleSpawner>();
 
-            spawner.CreatePuzzle(isActive, puzzleText, orderInSequence);
+            spawner.CreatePuzzle(puzzleItemDataEventArgs);
         }
 
         private void CalculateResult(PuzzleContainer container)

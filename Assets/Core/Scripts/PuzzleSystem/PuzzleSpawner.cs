@@ -1,3 +1,4 @@
+using Assets.Core.Scripts.PuzzleSystem;
 using UnityEngine;
 
 namespace Core.Scripts.PuzzleSystem
@@ -16,7 +17,7 @@ namespace Core.Scripts.PuzzleSystem
             _puzzleGameManager = transform.parent.parent.parent.parent.parent.GetComponent<PuzzleGameManager>();
         }
 
-        public void CreatePuzzle(bool isActive, string puzzleText, int orderInSequence = -1)
+        public void CreatePuzzle(PuzzleItemDataEventArgs puzzleItemDataEventArgs)
         {
             if (SpawnedPuzzle != null)
             {
@@ -26,7 +27,7 @@ namespace Core.Scripts.PuzzleSystem
 
 
             var puzzle = Instantiate(_puzzleItemPrefab, transform).GetComponent<PuzzleItem>();
-            puzzle.Initialize(isActive, orderInSequence, puzzleText);
+            puzzle.Initialize(puzzleItemDataEventArgs.isActive, puzzleItemDataEventArgs.orderInSequence, puzzleItemDataEventArgs.puzzleText);
             puzzle.SetSpawner(this);
             InstantiatePuzzleContainer(puzzle, transform.position, transform);
 
