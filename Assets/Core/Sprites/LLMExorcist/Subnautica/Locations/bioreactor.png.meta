@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: edc80dc220c0c214dab2a8c3ecab8328
+guid: 3e46128096a86374cbf9e3673ae875ef
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7124717483554935739
-    second: temple-console_0
+      213: 3064237180718834317
+    second: bioreactor_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: temple-console_0
+      name: bioreactor_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 192
-        height: 31
+        width: 35
+        height: 58
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: bb39e4c8dc410e260800000000000000
-      internalID: 7124717483554935739
+      spriteID: d826a481b7b568a20800000000000000
+      internalID: 3064237180718834317
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      temple-console_0: 7124717483554935739
+      bioreactor_0: 3064237180718834317
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
