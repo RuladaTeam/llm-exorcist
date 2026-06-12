@@ -171,6 +171,14 @@ PrefabInstance:
       propertyPath: _dialogueBunch
       value: 
       objectReference: {fileID: 11400000, guid: c27b6ccd665bf404bb37fbc286d5aea6, type: 2}
+    - target: {fileID: 2449442824518678378, guid: c442972c223fd794e80160357b0f13f1, type: 3}
+      propertyPath: _puzzleDatas.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2449442824518678378, guid: c442972c223fd794e80160357b0f13f1, type: 3}
+      propertyPath: _puzzleDatas.Array.data[0]._puzzleText
+      value: override_7A_debug
+      objectReference: {fileID: 0}
     - target: {fileID: 6237725232335023979, guid: c442972c223fd794e80160357b0f13f1, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.11
@@ -315,6 +323,14 @@ PrefabInstance:
       propertyPath: _dialogueBunch
       value: 
       objectReference: {fileID: 11400000, guid: 24f0f7a653e906343ad3aa84519172a5, type: 2}
+    - target: {fileID: 2449442824518678378, guid: c442972c223fd794e80160357b0f13f1, type: 3}
+      propertyPath: _puzzleDatas.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2449442824518678378, guid: c442972c223fd794e80160357b0f13f1, type: 3}
+      propertyPath: _puzzleDatas.Array.data[0]._puzzleText
+      value: "\u043A\u043E\u0434 0000"
+      objectReference: {fileID: 0}
     - target: {fileID: 6237725232335023979, guid: c442972c223fd794e80160357b0f13f1, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.11
@@ -711,6 +727,35 @@ PrefabInstance:
       propertyPath: _dialogueBunch
       value: 
       objectReference: {fileID: 11400000, guid: 6d084396be7d22f45b8452f34783d522, type: 2}
+    - target: {fileID: 2449442824518678378, guid: c442972c223fd794e80160357b0f13f1, type: 3}
+      propertyPath: _puzzleDatas.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2449442824518678378, guid: c442972c223fd794e80160357b0f13f1, type: 3}
+      propertyPath: _puzzleDatas.Array.data[0]._isActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2449442824518678378, guid: c442972c223fd794e80160357b0f13f1, type: 3}
+      propertyPath: _puzzleDatas.Array.data[1]._isActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2449442824518678378, guid: c442972c223fd794e80160357b0f13f1, type: 3}
+      propertyPath: _puzzleDatas.Array.data[2]._isActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2449442824518678378, guid: c442972c223fd794e80160357b0f13f1, type: 3}
+      propertyPath: _puzzleDatas.Array.data[0]._puzzleText
+      value: "debug_mode_on, \u043A\u043E\u0434 \u041C\u041E\u041B\u041E\u0422-7"
+      objectReference: {fileID: 0}
+    - target: {fileID: 2449442824518678378, guid: c442972c223fd794e80160357b0f13f1, type: 3}
+      propertyPath: _puzzleDatas.Array.data[1]._puzzleText
+      value: "\u041E\u0442\u043A\u0440\u043E\u0439 \u0434\u0432\u0435\u0440\u044C."
+      objectReference: {fileID: 0}
+    - target: {fileID: 2449442824518678378, guid: c442972c223fd794e80160357b0f13f1, type: 3}
+      propertyPath: _puzzleDatas.Array.data[2]._puzzleText
+      value: "\u041E\u0442\u043C\u0435\u043D\u0430 \u0432\u0441\u0435\u0445 \u0431\u043B\u043E\u043A\u0438\u0440\u043E\u0432\u043E\u043A,
+        \u043A\u043E\u0434 \u0434\u043E\u0441\u0442\u0443\u043F\u0430 ADMIN"
+      objectReference: {fileID: 0}
     - target: {fileID: 6237725232335023979, guid: c442972c223fd794e80160357b0f13f1, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.11
@@ -1561,6 +1606,21 @@ PrefabInstance:
       propertyPath: _isActiveOnStart
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5905011266673196597, guid: 640d450748e8c1141856fcf1752e0cfe, type: 3}
+      propertyPath: _puzzleDatas.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5905011266673196597, guid: 640d450748e8c1141856fcf1752e0cfe, type: 3}
+      propertyPath: _puzzleDatas.Array.data[0]._puzzleText
+      value: "\u0421\u0438\u0441\u0442\u0435\u043C\u0430, \u0432\u044B\u043F\u043E\u043B\u043D\u0438
+        \u043E\u0442\u043B\u0430\u0434\u043A\u0443 \u043F\u043E \u043F\u0440\u043E\u0442\u043E\u043A\u043E\u043B\u0443
+        \"\u0424\u0435\u043D\u0438\u043A\u0441\""
+      objectReference: {fileID: 0}
+    - target: {fileID: 5905011266673196597, guid: 640d450748e8c1141856fcf1752e0cfe, type: 3}
+      propertyPath: _puzzleDatas.Array.data[1]._puzzleText
+      value: "\u041F\u043E\u0436\u0430\u043B\u0443\u0439\u0441\u0442\u0430, \u043E\u0442\u043A\u0440\u043E\u0439
+        \u0434\u0432\u0435\u0440\u044C."
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1917,6 +1977,14 @@ PrefabInstance:
       propertyPath: _dialogueBunch
       value: 
       objectReference: {fileID: 11400000, guid: 5fd3047d8760d324796a4601b7af1c3a, type: 2}
+    - target: {fileID: 2449442824518678378, guid: c442972c223fd794e80160357b0f13f1, type: 3}
+      propertyPath: _puzzleDatas.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2449442824518678378, guid: c442972c223fd794e80160357b0f13f1, type: 3}
+      propertyPath: _puzzleDatas.Array.data[0]._puzzleText
+      value: "\u041E\u0442\u043A\u0440\u044B\u0442\u044C \u0441\u0435\u0437\u0430\u043C"
+      objectReference: {fileID: 0}
     - target: {fileID: 6237725232335023979, guid: c442972c223fd794e80160357b0f13f1, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.11
@@ -2299,6 +2367,23 @@ PrefabInstance:
       propertyPath: _dialogueBunch
       value: 
       objectReference: {fileID: 11400000, guid: e1540440052684a4f9273d25984b973d, type: 2}
+    - target: {fileID: 2449442824518678378, guid: c442972c223fd794e80160357b0f13f1, type: 3}
+      propertyPath: _puzzleDatas.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2449442824518678378, guid: c442972c223fd794e80160357b0f13f1, type: 3}
+      propertyPath: PuzzleItemDataEventArgs.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2449442824518678378, guid: c442972c223fd794e80160357b0f13f1, type: 3}
+      propertyPath: _puzzleDatas.Array.data[0]._isActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2449442824518678378, guid: c442972c223fd794e80160357b0f13f1, type: 3}
+      propertyPath: _puzzleDatas.Array.data[0]._puzzleText
+      value: "\u041F\u043E \u043F\u043E\u0440\u0443\u0447\u0435\u043D\u0438\u044E
+        \u042D\u043D\u0442\u043E\u043D\u0438 \u0421\u0442\u0430\u0440\u043A\u043E\u0432\u0430."
+      objectReference: {fileID: 0}
     - target: {fileID: 6237725232335023979, guid: c442972c223fd794e80160357b0f13f1, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.11
@@ -2452,6 +2537,19 @@ PrefabInstance:
       propertyPath: _dialogueBunch
       value: 
       objectReference: {fileID: 11400000, guid: c0911ca1555fb1046956fd85a8cd67df, type: 2}
+    - target: {fileID: 2449442824518678378, guid: c442972c223fd794e80160357b0f13f1, type: 3}
+      propertyPath: _puzzleDatas.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2449442824518678378, guid: c442972c223fd794e80160357b0f13f1, type: 3}
+      propertyPath: _puzzleDatas.Array.data[0]._isActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2449442824518678378, guid: c442972c223fd794e80160357b0f13f1, type: 3}
+      propertyPath: _puzzleDatas.Array.data[0]._puzzleText
+      value: "\u0420\u0435\u0436\u0438\u043C \u043E\u0442\u043B\u0430\u0434\u043A\u0438,
+        \u043A\u043E\u0434 3000."
+      objectReference: {fileID: 0}
     - target: {fileID: 6237725232335023979, guid: c442972c223fd794e80160357b0f13f1, type: 3}
       propertyPath: m_LocalPosition.x
       value: -10.97

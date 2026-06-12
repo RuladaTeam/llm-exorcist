@@ -2,6 +2,7 @@
 
 namespace Assets.Core.Scripts.PuzzleSystem
 {
+    [Serializable]
     public class PuzzleItemDataEventArgs : EventArgs
     {
         public readonly bool isActive;

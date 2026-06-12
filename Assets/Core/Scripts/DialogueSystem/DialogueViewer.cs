@@ -8,16 +8,21 @@ using Assets.Core.Scripts.PuzzleSystem;
 
 public class DialogueViewer : MonoBehaviour
 {
+    //Loooooool i hate myself
+    [Serializable]
+    private struct PuzzleItemDataStruct
+    {
+        public bool _isActive;
+        public int _orderInSequence;
+        public string _puzzleText;
+    }
+
     [Header("Dev settings")]
     [SerializeField] DialogueBunch _dialogueBunch;
     [SerializeField] private bool _isActiveOnStart;
     [SerializeField] private bool _isDestroyingInTheEnd = true;
     [Header("Puzzle settings")]
-    [SerializeField] private bool _isPuzzable = false;
-    [Space(10)]
-    [SerializeField] private bool _isActive;
-    [SerializeField] private int _orderInSequence;
-    [SerializeField] private string _puzzleText;
+    [SerializeField] private PuzzleItemDataStruct[] _puzzleDatas;
     [Space(40), Header("Maintenance settings")]
     [SerializeField] private Canvas _dialogueCanvas;
     [Space(10)]
@@ -130,10 +135,13 @@ public class DialogueViewer : MonoBehaviour
         IsGoing = false;
         _dialogueAnimator.SetTrigger(_triggerForEndName);
 
-        if(_isPuzzable)
-            OnCreditBookAction?.Invoke(this, EventArgs.Empty);
-        else
-            OnCreditBookAction?.Invoke(this, new PuzzleItemDataEventArgs(_isActive, _orderInSequence, _puzzleText));
+        if(_puzzleDatas.Length > 0)
+        {
+            foreach (PuzzleItemDataStruct puzzleItemData in _puzzleDatas)
+            {
+                OnCreditBookAction?.Invoke(this, new PuzzleItemDataEventArgs(puzzleItemData._isActive, puzzleItemData._orderInSequence, puzzleItemData._puzzleText));
+            }
+        }
         OnDialogueEnded?.Invoke();
 
         if (_dialogueBunch.IsReputationable)

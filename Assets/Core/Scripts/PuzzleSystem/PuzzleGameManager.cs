@@ -1,5 +1,4 @@
 using System;
-using System.Linq;
 using Assets.Core.Scripts.PuzzleSystem;
 using DG.Tweening;
 using UnityEngine;
@@ -16,6 +15,7 @@ namespace Core.Scripts.PuzzleSystem
         [SerializeField] private Transform _spawnerSpaceTransform;
         [SerializeField] private GameObject _containerPrefab;
         [SerializeField] private GameObject _spawnerPrefab;
+        [SerializeField] private string _anotherOrder;
         [Space(10)] 
         [SerializeField] private PuzzleDoor _puzzleDoor;
 
@@ -57,10 +57,10 @@ namespace Core.Scripts.PuzzleSystem
             //{
             //    EndPuzzle();
             //}
-            if (Input.GetKeyDown(KeyCode.C))
-            {
-                CreatePuzzle(true, "Test Puzzle", 0);
-            }
+            //if (Input.GetKeyDown(KeyCode.C))
+            //{
+            //    CreatePuzzle(this, EventArgs.Empty);
+            //}
         }
 
         private void StartPuzzle()
@@ -75,6 +75,8 @@ namespace Core.Scripts.PuzzleSystem
 
         private void CreatePuzzle(object sender, PuzzleItemDataEventArgs puzzleItemDataEventArgs)
         {
+            if (puzzleItemDataEventArgs == EventArgs.Empty) return;
+
             var spawner = Instantiate(_spawnerPrefab, _spawnerSpaceTransform).GetComponent<PuzzleSpawner>();
 
             spawner.CreatePuzzle(puzzleItemDataEventArgs);
@@ -83,8 +85,18 @@ namespace Core.Scripts.PuzzleSystem
         private void CalculateResult(PuzzleContainer container)
         {
             var puzzles = container.GetNestedPuzzlesArray();
-
+            bool correct = true;
             int currentSequenceIndex = 0;
+            
+            for (int i = 0; i < _anotherOrder.Length; i++)
+            {
+                if (puzzles[i].OrderInSequence != _anotherOrder[i])
+                {
+                    correct = false;
+                    break;
+                }
+            }
+
             foreach (var puzzle in puzzles)
             {
                 if (!puzzle.IsActive)
@@ -92,8 +104,8 @@ namespace Core.Scripts.PuzzleSystem
 
                 if (puzzle.OrderInSequence != currentSequenceIndex)
                 {
-                    Debug.Log("Puzzles are not in the right order");
-                    return;
+                    correct = false;
+                    break;
                 }
                 currentSequenceIndex++;
             }
@@ -103,10 +115,15 @@ namespace Core.Scripts.PuzzleSystem
                 Debug.Log("Not all active puzzles are connected (or too many if you have a mistake in code)");
                 return;
             }
+            if (!correct)
+            {
+                Debug.Log("Puzzles are not in the right order");
+                return;
+            }
 
-            //Debug.Log("Puzzle is solved!");
             //OnPuzzleSolved?.Invoke();
 
+            Debug.Log("Puzzle is solved!");
             _puzzleDoor.OpenDoor();
         }
 
