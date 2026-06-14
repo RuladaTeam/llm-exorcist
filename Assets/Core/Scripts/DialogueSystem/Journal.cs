@@ -16,9 +16,11 @@ public class Journal : MonoBehaviour
 
     private void OnEnable()
     {
-        DialogueViewer.OnCreditBookAction += SetJournalButton_OnCreditBookAction;
-        DialogueViewer.OnPhraseChanged += SaveSimplePhrase;
-        DialogueViewer.OnDialogueEnded += CreateSpace;
+        //DialogueViewer.OnPhraseChanged += SaveSimplePhrase;
+        //DialogueViewer.OnDialogueEnded += CreateSpace;
+        //DialogueViewer.OnDialogueEnded += SetTrueJournalButton_OnCreditBookAction;
+        //DialogueViewer.OnDialogueStarted += SetFalseJournalButton_OnCreditBookAction;
+
 
         _journalButton.onClick.AddListener(OpenCloseJournal);
 
@@ -28,9 +30,11 @@ public class Journal : MonoBehaviour
 
     private void OnDisable()
     {
-        DialogueViewer.OnCreditBookAction -= SetJournalButton_OnCreditBookAction;
-        DialogueViewer.OnPhraseChanged -= SaveSimplePhrase;
-        DialogueViewer.OnDialogueEnded -= CreateSpace;
+        //DialogueViewer.OnPhraseChanged -= SaveSimplePhrase;
+        //DialogueViewer.OnDialogueEnded -= CreateSpace;
+        //DialogueViewer.OnDialogueEnded -= SetTrueJournalButton_OnCreditBookAction;
+        //DialogueViewer.OnDialogueStarted -= SetFalseJournalButton_OnCreditBookAction;
+
 
         _journalButton.onClick.RemoveListener(OpenCloseJournal);
     }
@@ -53,7 +57,7 @@ public class Journal : MonoBehaviour
         IsJournalOpen = _fullJournal.activeSelf;
     }
 
-    private void SetJournalButton_OnCreditBookAction(object sender, EventArgs e)
+    private void SetJournalButton_OnCreditBookAction()
     {
         _journalButton.interactable = !_journalButton.IsInteractable();
     }

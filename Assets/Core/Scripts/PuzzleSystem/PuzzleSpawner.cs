@@ -9,15 +9,15 @@ namespace Core.Scripts.PuzzleSystem
 
         public PuzzleItem SpawnedPuzzle { get; private set; }
 
-        private PuzzleGameManager _puzzleGameManager;
+        public PuzzleGameManager PuzzleGameManager { private get; set; }
 
-        private void Start()
-        {
-            // looooool i hate myself
-            _puzzleGameManager = transform.parent.parent.parent.parent.parent.GetComponent<PuzzleGameManager>();
-        }
+        //private void Start()
+        //{
+        //    // looooool i hate myself
+        //    PuzzleGameManager = transform.parent.parent.parent.parent.parent.GetComponent<PuzzleGameManager>();
+        //}
 
-        public void CreatePuzzle(PuzzleItemDataEventArgs puzzleItemDataEventArgs)
+        public void CreatePuzzle(PuzzleItemDataStruct puzzleItemDataStruct)
         {
             if (SpawnedPuzzle != null)
             {
@@ -25,9 +25,8 @@ namespace Core.Scripts.PuzzleSystem
                 return;
             }
 
-
             var puzzle = Instantiate(_puzzleItemPrefab, transform).GetComponent<PuzzleItem>();
-            puzzle.Initialize(puzzleItemDataEventArgs.isActive, puzzleItemDataEventArgs.orderInSequence, puzzleItemDataEventArgs.puzzleText);
+            puzzle.Initialize(puzzleItemDataStruct.isActive, puzzleItemDataStruct.orderInSequence, puzzleItemDataStruct.puzzleText);
             puzzle.SetSpawner(this);
             InstantiatePuzzleContainer(puzzle, transform.position, transform);
 
@@ -36,12 +35,12 @@ namespace Core.Scripts.PuzzleSystem
 
         private GameObject InstantiatePuzzleContainer(PuzzleItem nestedPuzzle, Vector3 position, Transform parent = null)
         {
-            return _puzzleGameManager.InstantiateContainer(new PuzzleItem[] { nestedPuzzle }, position, parent);
+            return PuzzleGameManager.InstantiateContainer(new PuzzleItem[] { nestedPuzzle }, position, parent);
         }
 
         public PuzzleGameManager GetPuzzleGameManager()
         {
-            return _puzzleGameManager;
+            return PuzzleGameManager;
         }
     }
 }

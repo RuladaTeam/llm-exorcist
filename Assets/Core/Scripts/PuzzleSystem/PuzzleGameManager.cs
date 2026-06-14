@@ -7,9 +7,6 @@ namespace Core.Scripts.PuzzleSystem
 {
     public class PuzzleGameManager : MonoBehaviour
     {
-        // subscribe to this event to get notified when the puzzle is solved
-        //public static event Action OnPuzzleSolved;
-
         [SerializeField] private int _totalActivePuzzles;
         [SerializeField] private GameObject _puzzleCanvas;
         [SerializeField] private Transform _spawnerSpaceTransform;
@@ -37,14 +34,14 @@ namespace Core.Scripts.PuzzleSystem
         {
             _puzzleDoor.OnPuzzleStart += StartPuzzle;
             _puzzleDoor.OnPuzzleEnd += EndPuzzle;
-            //SomeEventSystem.OnCreatePuzzle += CreatePuzzle;
+            DialogueViewer.OnDialogueEnded += CreatePuzzle;
         }
 
         private void OnDisable()
         {
-            //SomeEventSystem.OnPuzzleStart -= StartPuzzle;
-            //SomeEventSystem.OnPuzzleEnd -= EndPuzzle;
-            //SomeEventSystem.OnCreatePuzzle -= CreatePuzzle;
+            _puzzleDoor.OnPuzzleStart -= StartPuzzle;
+            _puzzleDoor.OnPuzzleEnd -= EndPuzzle;
+            DialogueViewer.OnDialogueEnded -= CreatePuzzle;
         }
 
         private void Update()
@@ -57,10 +54,10 @@ namespace Core.Scripts.PuzzleSystem
             //{
             //    EndPuzzle();
             //}
-            //if (Input.GetKeyDown(KeyCode.C))
-            //{
-            //    CreatePuzzle(this, EventArgs.Empty);
-            //}
+            if (Input.GetKeyDown(KeyCode.Z))
+            {
+                CreatePuzzle(new PuzzleItemDataStruct());
+            }
         }
 
         private void StartPuzzle()
@@ -73,13 +70,12 @@ namespace Core.Scripts.PuzzleSystem
             _puzzleCanvas.SetActive(false);
         }
 
-        private void CreatePuzzle(object sender, PuzzleItemDataEventArgs puzzleItemDataEventArgs)
+        private void CreatePuzzle(PuzzleItemDataStruct puzzleItemDataStruct)
         {
-            if (puzzleItemDataEventArgs == EventArgs.Empty) return;
-
             var spawner = Instantiate(_spawnerPrefab, _spawnerSpaceTransform).GetComponent<PuzzleSpawner>();
+            new PuzzleSpawnerBuilder(this, spawner);
 
-            spawner.CreatePuzzle(puzzleItemDataEventArgs);
+            spawner.CreatePuzzle(puzzleItemDataStruct);
         }
 
         private void CalculateResult(PuzzleContainer container)

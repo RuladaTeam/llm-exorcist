@@ -8,15 +8,6 @@ using Assets.Core.Scripts.PuzzleSystem;
 
 public class DialogueViewer : MonoBehaviour
 {
-    //Loooooool i hate myself
-    [Serializable]
-    private struct PuzzleItemDataStruct
-    {
-        public bool _isActive;
-        public int _orderInSequence;
-        public string _puzzleText;
-    }
-
     [Header("Dev settings")]
     [SerializeField] DialogueBunch _dialogueBunch;
     [SerializeField] private bool _isActiveOnStart;
@@ -52,7 +43,7 @@ public class DialogueViewer : MonoBehaviour
 
     public static event EventHandler OnCreditBookAction;
     public static event Action<DialogueBaseClass> OnPhraseChanged;
-    public static event Action OnDialogueEnded;
+    public static event Action<PuzzleItemDataStruct> OnDialogueEnded;
 
     public static bool IsGoing { get; private set; } = false;
     public DialogueBaseClass CurrentDialogueElement { get; private set; }
@@ -139,10 +130,9 @@ public class DialogueViewer : MonoBehaviour
         {
             foreach (PuzzleItemDataStruct puzzleItemData in _puzzleDatas)
             {
-                OnCreditBookAction?.Invoke(this, new PuzzleItemDataEventArgs(puzzleItemData._isActive, puzzleItemData._orderInSequence, puzzleItemData._puzzleText));
+                OnDialogueEnded?.Invoke(puzzleItemData);
             }
         }
-        OnDialogueEnded?.Invoke();
 
         if (_dialogueBunch.IsReputationable)
         {
