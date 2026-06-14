@@ -122,6 +122,8 @@ public class DialogueViewer : MonoBehaviour
     private IEnumerator Ender()
     {
         Reseter();
+        OnCreditBookAction?.Invoke(this, EventArgs.Empty);
+
 
         IsGoing = false;
         _dialogueAnimator.SetTrigger(_triggerForEndName);

@@ -12,15 +12,13 @@ public class Journal : MonoBehaviour
     [SerializeField] private GameObject _simplePhrase;
     [SerializeField] private GameObject _space;
 
-    public static bool IsJournalOpen {  get; private set; }
+    public static bool IsJournalOpen { get; private set; }
 
     private void OnEnable()
     {
-        //DialogueViewer.OnPhraseChanged += SaveSimplePhrase;
-        //DialogueViewer.OnDialogueEnded += CreateSpace;
-        //DialogueViewer.OnDialogueEnded += SetTrueJournalButton_OnCreditBookAction;
-        //DialogueViewer.OnDialogueStarted += SetFalseJournalButton_OnCreditBookAction;
-
+        DialogueViewer.OnCreditBookAction += SetJournalButton_OnCreditBookAction;
+        DialogueViewer.OnPhraseChanged += SaveSimplePhrase;
+        DialogueViewer.OnCreditBookAction += CreateSpace;
 
         _journalButton.onClick.AddListener(OpenCloseJournal);
 
@@ -30,11 +28,9 @@ public class Journal : MonoBehaviour
 
     private void OnDisable()
     {
-        //DialogueViewer.OnPhraseChanged -= SaveSimplePhrase;
-        //DialogueViewer.OnDialogueEnded -= CreateSpace;
-        //DialogueViewer.OnDialogueEnded -= SetTrueJournalButton_OnCreditBookAction;
-        //DialogueViewer.OnDialogueStarted -= SetFalseJournalButton_OnCreditBookAction;
-
+        DialogueViewer.OnCreditBookAction -= SetJournalButton_OnCreditBookAction;
+        DialogueViewer.OnPhraseChanged -= SaveSimplePhrase;
+        DialogueViewer.OnCreditBookAction -= CreateSpace;
 
         _journalButton.onClick.RemoveListener(OpenCloseJournal);
     }
@@ -46,7 +42,7 @@ public class Journal : MonoBehaviour
         currentSimplePhrase.Text.text = phraseData.simplePhrase.InputText;
     }
 
-    private void CreateSpace()
+    private void CreateSpace(object sender, EventArgs e)
     {
         Instantiate(_space, _journalContent);
     }
@@ -57,7 +53,7 @@ public class Journal : MonoBehaviour
         IsJournalOpen = _fullJournal.activeSelf;
     }
 
-    private void SetJournalButton_OnCreditBookAction()
+    private void SetJournalButton_OnCreditBookAction(object sender, EventArgs e)
     {
         _journalButton.interactable = !_journalButton.IsInteractable();
     }
