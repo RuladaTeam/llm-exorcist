@@ -17,8 +17,7 @@ namespace Core.Scripts.PuzzleSystem
 
         [Header("Visuals")]
         [SerializeField] private TextMeshProUGUI _puzzleText;
-        [SerializeField] private GameObject OnHoverHint;
-        [SerializeField] private TextMeshProUGUI OnHoverHintText;
+        [SerializeField] private TextMeshProUGUI _puzzleDescription;
 
         private PuzzleItem _overlappingPuzzle; // currently static puzzle that is being overlapped by this puzzle while in drag
         private RectTransform _rectTransform;
@@ -42,11 +41,12 @@ namespace Core.Scripts.PuzzleSystem
             OnPuzzleDrag -= Puzzle_OnPuzzleDrag;
         }
 
-        public void Initialize(bool isActive, int orderInSequence, string puzzleText)
+        public void Initialize(bool isActive, int orderInSequence, string puzzleText, string puzzleDescription)
         {
             IsActive = isActive;
             OrderInSequence = orderInSequence;
             _puzzleText.text = puzzleText;
+            _puzzleDescription.text = puzzleDescription;
         }
 
         public void OnBeginDrag(PointerEventData eventData)

@@ -48,7 +48,11 @@ namespace Core.Scripts.PuzzleSystem
         {
             if (Input.GetKeyDown(KeyCode.Z))
             {
-                CreatePuzzle(new PuzzleItemDataStruct());
+                CreatePuzzle(new PuzzleItemDataStruct()
+                {
+                    puzzleText = "на наху =)",
+                    puzzleInfo = "Ну что ты фраер сдал назад не по масти я тебе епта бля =)"
+                });
             }
         }
 
