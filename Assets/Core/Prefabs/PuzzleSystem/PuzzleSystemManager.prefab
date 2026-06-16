@@ -35,8 +35,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -90, y: 0}
-  m_SizeDelta: {x: 150, y: -60}
+  m_AnchoredPosition: {x: -220, y: 0}
+  m_SizeDelta: {x: 400, y: -40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4337768798865141336
 CanvasRenderer:
@@ -203,7 +203,7 @@ MonoBehaviour:
   _spawnerSpaceTransform: {fileID: 0}
   _containerPrefab: {fileID: 3960441331919951696, guid: 07a9dc5f15dff544190878e6d67cc9ce, type: 3}
   _spawnerPrefab: {fileID: 0}
-  _anotherOrder: 
+  _puzzleOrders: []
   _puzzleDoor: {fileID: 8431666605136814316}
 --- !u!1 &5500553030156101361
 GameObject:
@@ -279,10 +279,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 11080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -552,14 +552,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 10
-    m_Right: 10
+    m_Left: 50
+    m_Right: 50
     m_Top: 15
     m_Bottom: 15
   m_ChildAlignment: 0
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 25, y: 25}
-  m_Spacing: {x: 10, y: 10}
+  m_CellSize: {x: 120, y: 120}
+  m_Spacing: {x: 50, y: 30}
   m_Constraint: 1
-  m_ConstraintCount: 4
+  m_ConstraintCount: 2
