@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEngine;
 
 namespace Assets.Core.Scripts.PuzzleSystem
 {
@@ -8,5 +9,6 @@ namespace Assets.Core.Scripts.PuzzleSystem
         public bool isActive;
         public int orderInSequence;
         public string puzzleText;
+        [Multiline(4)] public string puzzleInfo;
     }
 }

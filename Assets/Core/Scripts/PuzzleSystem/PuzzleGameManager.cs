@@ -12,7 +12,7 @@ namespace Core.Scripts.PuzzleSystem
         [SerializeField] private Transform _spawnerSpaceTransform;
         [SerializeField] private GameObject _containerPrefab;
         [SerializeField] private GameObject _spawnerPrefab;
-        [SerializeField] private string _anotherOrder;
+        [SerializeField] private string[] _puzzleOrders;
         [Space(10)] 
         [SerializeField] private PuzzleDoor _puzzleDoor;
 
@@ -81,46 +81,57 @@ namespace Core.Scripts.PuzzleSystem
         private void CalculateResult(PuzzleContainer container)
         {
             var puzzles = container.GetNestedPuzzlesArray();
-            bool correct = true;
-            int currentSequenceIndex = 0;
-            
-            for (int i = 0; i < _anotherOrder.Length; i++)
-            {
-                if (puzzles[i].OrderInSequence != _anotherOrder[i])
-                {
-                    correct = false;
-                    break;
-                }
-            }
 
-            foreach (var puzzle in puzzles)
+            foreach (string order in _puzzleOrders)
             {
-                if (!puzzle.IsActive)
+                if(puzzles.Length != order.Length)
+                {
                     continue;
-
-                if (puzzle.OrderInSequence != currentSequenceIndex)
-                {
-                    correct = false;
-                    break;
                 }
-                currentSequenceIndex++;
+
+                bool correct = true;
+                for (int i = 0; i < order.Length; i++)
+                {
+                    if (puzzles[i].OrderInSequence != order[i])
+                    {
+                        correct = false;
+                        break;
+                    }
+                }
+
+                if (correct)
+                {
+                    Debug.Log("Puzzle is solved!");
+                    _puzzleDoor.OpenDoor();
+                    return;
+                }
             }
 
-            if (currentSequenceIndex != _totalActivePuzzles)
-            {
-                Debug.Log("Not all active puzzles are connected (or too many if you have a mistake in code)");
-                return;
-            }
-            if (!correct)
-            {
-                Debug.Log("Puzzles are not in the right order");
-                return;
-            }
+            //foreach (var puzzle in puzzles)
+            //{
+            //    if (!puzzle.IsActive)
+            //        continue;
+
+            //    if (puzzle.OrderInSequence != currentSequenceIndex)
+            //    {
+            //        correct = false;
+            //        break;
+            //    }
+            //    currentSequenceIndex++;
+            //}
+
+            //if (currentSequenceIndex != _totalActivePuzzles)
+            //{
+            //    Debug.Log("Not all active puzzles are connected (or too many if you have a mistake in code)");
+            //    return;
+            //}
+            //if (!correct)
+            //{
+            //    Debug.Log("Puzzles are not in the right order");
+            //    return;
+            //}
 
             //OnPuzzleSolved?.Invoke();
-
-            Debug.Log("Puzzle is solved!");
-            _puzzleDoor.OpenDoor();
         }
 
         public bool IsOnWorkspace(Vector2 point)
