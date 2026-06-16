@@ -8,7 +8,7 @@ namespace Core.Scripts.PuzzleSystem
     public class PuzzleItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
     {
         public static event Action<PuzzleItem> OnPuzzleDrag;
-        public static event Action<PuzzleItem> OnPuzzleDrop;
+        public static event Action<PuzzleItem, PuzzleSpawner> OnPuzzleReturnedToSpawner;
 
         [field: SerializeField] public bool IsActive { get; private set; }
         [field: SerializeField] public int OrderInSequence { get; private set; }
@@ -17,10 +17,14 @@ namespace Core.Scripts.PuzzleSystem
 
         [Header("Visuals")]
         [SerializeField] private TextMeshProUGUI _puzzleText;
+        [SerializeField] private GameObject OnHoverHint;
+        [SerializeField] private TextMeshProUGUI OnHoverHintText;
 
         private PuzzleItem _overlappingPuzzle; // currently static puzzle that is being overlapped by this puzzle while in drag
         private RectTransform _rectTransform;
         private PuzzleSpawner _spawner;
+
+        // todo: not sure if i need this
         private bool _isDraggedNow;
 
         private void Start()
@@ -87,8 +91,6 @@ namespace Core.Scripts.PuzzleSystem
 
         public void OnEndDrag(PointerEventData eventData)
         {
-            OnPuzzleDrop?.Invoke(this);
-
             if (ParentContainer == null)
             {
                 Debug.LogError("parent is null watafuk");
@@ -105,7 +107,9 @@ namespace Core.Scripts.PuzzleSystem
         {
             if (draggingPuzzle == this) return;
 
-            // todo: check what did i mean here (now does not work properly for loops)
+            // if _spawner is not null this means that this  puzzle is the child of a spawner
+            // so it is not allowed to connect to it
+            if (transform.parent.parent == _spawner.transform) return;
 
             if (RectTransformUtility.RectangleContainsScreenPoint(_connectionAreaRect, draggingPuzzle.GetTopPoint()))
             {
@@ -146,9 +150,11 @@ namespace Core.Scripts.PuzzleSystem
         {
             if (!_spawner.GetPuzzleGameManager().IsOnWorkspace(transform.position))
             {
-                var targetTransform = ParentContainer.transform;
+                var targetTransform = transform;
                 _spawner.GetPuzzleGameManager().MoveToPosition(targetTransform, _spawner.transform.position, () =>
                 {
+                    ParentContainer.RemovePuzzle(this);
+                    OnPuzzleReturnedToSpawner?.Invoke(this, _spawner);
                     // if (_destroyOnReturnToInitialPosition)
                     // {
                     //     DestroyNode();

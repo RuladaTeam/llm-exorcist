@@ -13,7 +13,7 @@ namespace Core.Scripts.PuzzleSystem
         [SerializeField] private GameObject _containerPrefab;
         [SerializeField] private GameObject _spawnerPrefab;
         [SerializeField] private string[] _puzzleOrders;
-        [Space(10)] 
+        [Space(10)]
         [SerializeField] private PuzzleDoor _puzzleDoor;
 
         private RectTransform _workspaceTransform;
@@ -46,14 +46,6 @@ namespace Core.Scripts.PuzzleSystem
 
         private void Update()
         {
-            //if (Input.GetKeyDown(KeyCode.W))
-            //{
-            //    StartPuzzle();
-            //}
-            //if (Input.GetKeyDown(KeyCode.S))
-            //{
-            //    EndPuzzle();
-            //}
             if (Input.GetKeyDown(KeyCode.Z))
             {
                 CreatePuzzle(new PuzzleItemDataStruct());
@@ -84,7 +76,7 @@ namespace Core.Scripts.PuzzleSystem
 
             foreach (string order in _puzzleOrders)
             {
-                if(puzzles.Length != order.Length)
+                if (puzzles.Length != order.Length)
                 {
                     continue;
                 }

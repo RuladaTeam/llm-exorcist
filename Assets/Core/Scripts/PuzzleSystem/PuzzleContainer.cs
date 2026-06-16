@@ -87,11 +87,6 @@ namespace Core.Scripts.PuzzleSystem
             RecalculateRect();
         }
 
-        public void OnPuzzleDestroyed(PuzzleItem childPuzzle)
-        {
-            RemovePuzzle(childPuzzle);
-        }
-
         public void PushPuzzle(PuzzleItem[] puzzles, int startIndex)
         {
             foreach (var puzzle in puzzles)

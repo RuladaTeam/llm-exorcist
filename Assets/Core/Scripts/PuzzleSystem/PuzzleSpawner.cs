@@ -11,11 +11,15 @@ namespace Core.Scripts.PuzzleSystem
 
         public PuzzleGameManager PuzzleGameManager { private get; set; }
 
-        //private void Start()
-        //{
-        //    // looooool i hate myself
-        //    PuzzleGameManager = transform.parent.parent.parent.parent.parent.GetComponent<PuzzleGameManager>();
-        //}
+        private void OnEnable()
+        {
+            PuzzleItem.OnPuzzleReturnedToSpawner += PuzzleItem_OnPuzzleReturnedToSpawner;
+        }
+
+        private void OnDisable()
+        {
+            PuzzleItem.OnPuzzleReturnedToSpawner += PuzzleItem_OnPuzzleReturnedToSpawner;
+        }
 
         public void CreatePuzzle(PuzzleItemDataStruct puzzleItemDataStruct)
         {
@@ -31,6 +35,14 @@ namespace Core.Scripts.PuzzleSystem
             InstantiatePuzzleContainer(puzzle, transform.position, transform);
 
             SpawnedPuzzle = puzzle;
+        }
+
+
+        private void PuzzleItem_OnPuzzleReturnedToSpawner(PuzzleItem puzzle, PuzzleSpawner spawner)
+        {
+            if (spawner != this) return;
+
+            InstantiatePuzzleContainer(puzzle, transform.position, transform);
         }
 
         private GameObject InstantiatePuzzleContainer(PuzzleItem nestedPuzzle, Vector3 position, Transform parent = null)
