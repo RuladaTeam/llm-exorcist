@@ -7,7 +7,7 @@ namespace Assets.Core.Scripts.PuzzleSystem
     public struct PuzzleItemDataStruct
     {
         public bool isActive;
-        public int orderInSequence;
+        public int indexInSequence;
         public string puzzleText;
         [Multiline(4)] public string puzzleInfo;
     }

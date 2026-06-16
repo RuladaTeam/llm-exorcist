@@ -12,8 +12,6 @@ public class DialogueViewer : MonoBehaviour
     [SerializeField] DialogueBunch _dialogueBunch;
     [SerializeField] private bool _isActiveOnStart;
     [SerializeField] private bool _isDestroyingInTheEnd = true;
-    [Header("Puzzle settings")]
-    [SerializeField] private PuzzleItemDataStruct[] _puzzleDatas;
     [Space(40), Header("Maintenance settings")]
     [SerializeField] private Canvas _dialogueCanvas;
     [Space(10)]
@@ -128,9 +126,9 @@ public class DialogueViewer : MonoBehaviour
         IsGoing = false;
         _dialogueAnimator.SetTrigger(_triggerForEndName);
 
-        if(_puzzleDatas.Length > 0)
+        if(_dialogueBunch.PuzzleItemDatas.Count > 0)
         {
-            foreach (PuzzleItemDataStruct puzzleItemData in _puzzleDatas)
+            foreach (PuzzleItemDataStruct puzzleItemData in _dialogueBunch.PuzzleItemDatas)
             {
                 OnDialogueEnded?.Invoke(puzzleItemData);
             }

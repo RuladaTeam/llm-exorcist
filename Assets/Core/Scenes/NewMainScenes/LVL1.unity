@@ -3369,6 +3369,18 @@ PrefabInstance:
       propertyPath: _spawnerSpaceTransform
       value: 
       objectReference: {fileID: 7504461598343045994}
+    - target: {fileID: 6771995281010139849, guid: 499309bbf12d6d34683e2483d11eeda9, type: 3}
+      propertyPath: _puzzleOrders.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6771995281010139849, guid: 499309bbf12d6d34683e2483d11eeda9, type: 3}
+      propertyPath: '_puzzleOrders.Array.data[0]'
+      value: 2135
+      objectReference: {fileID: 0}
+    - target: {fileID: 6771995281010139849, guid: 499309bbf12d6d34683e2483d11eeda9, type: 3}
+      propertyPath: '_puzzleOrders.Array.data[1]'
+      value: 154
+      objectReference: {fileID: 0}
     - target: {fileID: 8842239255996353705, guid: 499309bbf12d6d34683e2483d11eeda9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

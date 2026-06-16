@@ -88,7 +88,7 @@ namespace Core.Scripts.PuzzleSystem
                 bool correct = true;
                 for (int i = 0; i < order.Length; i++)
                 {
-                    if (puzzles[i].OrderInSequence != order[i])
+                    if (puzzles[i].OrderInSequence != order[i] || puzzles[i].IsActive == false)
                     {
                         correct = false;
                         break;

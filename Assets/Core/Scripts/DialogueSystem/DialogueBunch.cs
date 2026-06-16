@@ -1,3 +1,4 @@
+using Assets.Core.Scripts.PuzzleSystem;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
@@ -9,6 +10,9 @@ public class DialogueBunch : ScriptableObject
     [Space(20)]
     [SerializeField]private List<DialogueBaseClass> _rootDialogue;
     [Space(70)]
+    [Header("Puzzle Parameters")]
+    [SerializeField] private PuzzleItemDataStruct[] _puzzleDatas;
+    [Space(20)]
     [Header("Reputation Parameters")]
     [SerializeField, Tooltip("To Activate Reputation System")] private bool _isReputationable = false;
     [SerializeField, Range(0, 100)] private float _startReputation = 60f;
@@ -24,6 +28,11 @@ public class DialogueBunch : ScriptableObject
     [SerializeField] private List<DialogueBaseClass> _badResultDialogue;
     private float _reputation = 50f;
     private List<DialogueBaseClass> _currentDialogue;
+
+    public IReadOnlyList<PuzzleItemDataStruct> PuzzleItemDatas
+    {
+        get => _puzzleDatas;
+    }
 
     public bool IsReputationable
     {
