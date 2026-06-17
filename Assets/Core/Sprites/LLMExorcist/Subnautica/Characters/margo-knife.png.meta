@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: b5bd0fd0b9aac4c47a27ab88f030b15c
+guid: 849f17a8c37ba0947a4905cc9f9b8389
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6362395507934328438
-    second: margo-proto_0
+      213: -2211982382839869256
+    second: margo-knife_0
+  - first:
+      213: 4329870548387192041
+    second: margo-knife_1
+  - first:
+      213: -9144456721830065215
+    second: margo-knife_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,12 +119,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: margo-proto_0
+      name: margo-knife_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 19
+        width: 22
         height: 43
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -128,8 +134,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 67677fa4105cb4850800000000000000
-      internalID: 6362395507934328438
+      spriteID: 8b0586d0eb57d41e0800000000000000
+      internalID: -2211982382839869256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: margo-knife_1
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 0
+        width: 22
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ec5b08b25ac61c30800000000000000
+      internalID: 4329870548387192041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: margo-knife_2
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 0
+        width: 22
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1cbc2679f0d581180800000000000000
+      internalID: -9144456721830065215
       vertices: []
       indices: 
       edges: []
@@ -148,7 +198,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      margo-proto_0: 6362395507934328438
+      margo-knife_0: -2211982382839869256
+      margo-knife_1: 4329870548387192041
+      margo-knife_2: -9144456721830065215
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

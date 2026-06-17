@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: df2f8e8636b839e4397829cfdf862d95
+guid: a14cf9692be643e438a7286faef3847e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6668668861246951125
-    second: robin-proto_0
+      213: 6604339808490387203
+    second: tablet_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: robin-proto_0
+      name: tablet_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 14
-        height: 47
+        width: 32
+        height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b21baa8b0012473a0800000000000000
-      internalID: -6668668861246951125
+      spriteID: 3077a05801457ab50800000000000000
+      internalID: 6604339808490387203
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      robin-proto_0: -6668668861246951125
+      tablet_0: 6604339808490387203
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

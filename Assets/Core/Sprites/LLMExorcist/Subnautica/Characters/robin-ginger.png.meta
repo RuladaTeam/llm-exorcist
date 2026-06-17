@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: edc80dc220c0c214dab2a8c3ecab8328
+guid: 64f8e8b78a22af744974e7a9e548e553
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7124717483554935739
-    second: temple-console_0
+      213: 2110242447990696568
+    second: robin-ginger_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: temple-console_0
+      name: robin-ginger_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 192
-        height: 31
+        width: 28
+        height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: bb39e4c8dc410e260800000000000000
-      internalID: 7124717483554935739
+      spriteID: 87aaf6e6356194d10800000000000000
+      internalID: 2110242447990696568
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      temple-console_0: 7124717483554935739
+      robin-ginger_0: 2110242447990696568
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
