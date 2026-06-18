@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: be4f9d17d94586b419e5097a6098f95f
+guid: 64f8e8b78a22af744974e7a9e548e553
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1710861076197091963
-    second: mc-front_0
+      213: 2110242447990696568
+    second: robin-ginger_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,10 +46,10 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 6
+  alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 20
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
@@ -126,23 +126,45 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: mc-front_0
+      name: RobinGinger_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 18
-        height: 50
+        width: 14
+        height: 47
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: b7a25c295133eb710800000000000000
-      internalID: 1710861076197091963
+      spriteID: 3fea8f636f95434488a9bbfa3b6554af
+      internalID: 1817322834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RobinGinger_1
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 0
+        width: 14
+        height: 47
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3b93b6ecdb9f4d4d80710b04610b65d
+      internalID: -2078830862
       vertices: []
       indices: 
       edges: []
@@ -151,7 +173,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 729adb7f84e733b4a95df3cc68f68f84
+    spriteID: b8c6bde07830aaa4bb96c63df481ba20
     internalID: 0
     vertices: []
     indices: 
@@ -161,7 +183,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      mc-front_0: 1710861076197091963
+      RobinGinger_0: 1817322834
+      RobinGinger_1: -2078830862
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
