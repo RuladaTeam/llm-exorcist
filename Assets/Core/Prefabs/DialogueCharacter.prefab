@@ -339,6 +339,7 @@ MonoBehaviour:
   _interactiveSign: {fileID: 1456602726734216055}
   _animator: {fileID: 6776800947394479265}
   _dialogueViewer: {fileID: 2449442824518678378}
+  _triggerCollider: {fileID: 7032543053465951562}
   _setAnimParameters: []
 --- !u!61 &7032543053465951562
 BoxCollider2D:

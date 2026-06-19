@@ -16,6 +16,7 @@ public class DialogueCharacter : InteractableObject
 
     [SerializeField] private Animator _animator;
     [SerializeField] private DialogueViewer _dialogueViewer;
+    [SerializeField] private Collider2D _triggerCollider;
     [Space(10)]
     [SerializeField] private List<SetAnimParameter> _setAnimParameters;
     
@@ -47,6 +48,7 @@ public class DialogueCharacter : InteractableObject
             {
                 StartCoroutine(_dialogueViewer.Starter());
                 _isInteractable = false;
+                _triggerCollider.enabled = false;
             }
                 
         }
