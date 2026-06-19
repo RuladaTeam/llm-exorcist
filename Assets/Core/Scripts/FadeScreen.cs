@@ -23,7 +23,7 @@ public class FadeScreen : MonoBehaviour
         _color = _fadeImage.color;
     }
 
-    public IEnumerator Fade(float duration, float waitAfterFadingDuration = 0f)
+    public IEnumerator Fade(float duration = 1.5f, float waitAfterFadingDuration = 0f)
     {
         OnFadingStarted?.Invoke(this, new OnFadingStartedEventArgs { FadingDuration = duration });
         
@@ -48,7 +48,7 @@ public class FadeScreen : MonoBehaviour
         }
     }
 
-    public IEnumerator Appear(float duration)
+    public IEnumerator Appear(float duration = 1.5f)
     {
         _color.a = 1f;
         _fadeImage.color = _color;
