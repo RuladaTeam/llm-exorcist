@@ -12,7 +12,6 @@ public class Leviathan : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("1");
         _visual.SetActive(true);
         Destroy(gameObject, _timeToDestroy);
     }

@@ -10,8 +10,8 @@ public class OrderInLayerChanger : MonoBehaviour
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
 
-        _overPlayerOrderInLayer = _spriteRenderer.sortingOrder;
-        _underPlayerOrderInLayer = _overPlayerOrderInLayer - 2;
+        _overPlayerOrderInLayer = Player.Instance.SpriteRenderer.sortingOrder + 1;
+        _underPlayerOrderInLayer = Player.Instance.SpriteRenderer.sortingOrder - 1;
     }
 
     void Update()

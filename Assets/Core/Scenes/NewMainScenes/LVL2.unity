@@ -355,6 +355,84 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6237725232335023979, guid: c442972c223fd794e80160357b0f13f1, type: 3}
   m_PrefabInstance: {fileID: 10425319}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &31112854
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 31112855}
+  - component: {fileID: 31112856}
+  m_Layer: 0
+  m_Name: BoxCollider (18)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &31112855
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 31112854}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.1499958, y: -4.25, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 259661681}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &31112856
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 31112854}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: -0.07515335, y: -0.12209487}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 1.6224899, y: 0.6785569}
+  m_EdgeRadius: 0
 --- !u!1001 &39582163
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1317,6 +1395,7 @@ GameObject:
   m_Component:
   - component: {fileID: 172850170}
   - component: {fileID: 172850171}
+  - component: {fileID: 172850172}
   m_Layer: 0
   m_Name: TempleHologram
   m_TagString: Untagged
@@ -1394,6 +1473,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &172850172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 172850169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba33ce23c450dd447a0b3f806101f1ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &198594930
 GameObject:
   m_ObjectHideFlags: 0
@@ -1616,8 +1707,9 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 76670355}
-  - {fileID: 297136950}
+  - {fileID: 31112855}
   - {fileID: 1886404141}
+  - {fileID: 297136950}
   - {fileID: 1458926014}
   - {fileID: 2140963442}
   - {fileID: 438269793}
@@ -2254,7 +2346,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 1.3661003, y: 0.08054137}
+  m_Offset: {x: 1.3661003, y: 0.19824338}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -2264,7 +2356,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 3.5458603, y: 1.1880965}
+  m_Size: {x: 3.5458603, y: 1.4235003}
   m_EdgeRadius: 0
 --- !u!1 &391528121
 GameObject:
@@ -4955,6 +5047,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1110570803}
   - component: {fileID: 1110570804}
+  - component: {fileID: 1110570805}
   m_Layer: 0
   m_Name: Poles_1 (1)
   m_TagString: Untagged
@@ -5032,6 +5125,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1110570805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1110570802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba33ce23c450dd447a0b3f806101f1ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1119258434
 GameObject:
   m_ObjectHideFlags: 0
@@ -5042,6 +5147,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1119258435}
   - component: {fileID: 1119258436}
+  - component: {fileID: 1119258437}
   m_Layer: 0
   m_Name: TempleConsole
   m_TagString: Untagged
@@ -5119,6 +5225,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1119258437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1119258434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba33ce23c450dd447a0b3f806101f1ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1180948189
 GameObject:
   m_ObjectHideFlags: 0
@@ -5502,6 +5620,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1357820258}
   - component: {fileID: 1357820259}
+  - component: {fileID: 1357820260}
   m_Layer: 0
   m_Name: TempleHologramSource
   m_TagString: Untagged
@@ -5579,6 +5698,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1357820260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1357820257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba33ce23c450dd447a0b3f806101f1ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1378527073
 GameObject:
   m_ObjectHideFlags: 0
@@ -5846,6 +5977,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1408775753}
   - component: {fileID: 1408775754}
+  - component: {fileID: 1408775755}
   m_Layer: 0
   m_Name: LVL2Staff_0
   m_TagString: Untagged
@@ -5923,6 +6055,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1408775755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1408775752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba33ce23c450dd447a0b3f806101f1ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1411908508
 GameObject:
   m_ObjectHideFlags: 0
@@ -6580,6 +6724,7 @@ GameObject:
   - component: {fileID: 1564781266}
   - component: {fileID: 1564781267}
   - component: {fileID: 1564781268}
+  - component: {fileID: 1564781269}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -6682,6 +6827,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1564781269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1564781265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba33ce23c450dd447a0b3f806101f1ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1609651414
 GameObject:
   m_ObjectHideFlags: 0
@@ -8135,6 +8292,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2031349356}
   - component: {fileID: 2031349357}
+  - component: {fileID: 2031349358}
   m_Layer: 0
   m_Name: Poles_0 (1)
   m_TagString: Untagged
@@ -8212,6 +8370,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2031349358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2031349355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba33ce23c450dd447a0b3f806101f1ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2051462404
 GameObject:
   m_ObjectHideFlags: 0
@@ -8338,6 +8508,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2069193672}
   - component: {fileID: 2069193673}
+  - component: {fileID: 2069193674}
   m_Layer: 0
   m_Name: Poles_1
   m_TagString: Untagged
@@ -8415,6 +8586,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2069193674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2069193671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba33ce23c450dd447a0b3f806101f1ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2078203711
 GameObject:
   m_ObjectHideFlags: 0
@@ -8740,6 +8923,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2122669960}
   - component: {fileID: 2122669961}
+  - component: {fileID: 2122669962}
   m_Layer: 0
   m_Name: Poles_0
   m_TagString: Untagged
@@ -8817,6 +9001,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2122669962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2122669959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba33ce23c450dd447a0b3f806101f1ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2140963441
 GameObject:
   m_ObjectHideFlags: 0
