@@ -1,4 +1,5 @@
 using System;
+using Core.Scripts.UI;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -47,6 +48,16 @@ namespace Core.Scripts.PuzzleSystem
             OrderInSequence = orderInSequence;
             _puzzleText.text = puzzleText;
             _puzzleDescription.text = puzzleDescription;
+
+            if (TryGetComponent<HoverableObject>(out var hoverableObject))
+            {
+                hoverableObject.SetGlobalTransform(GetPuzzleGameManager().GetWorkspaceTransform());
+                Debug.Log("yes nahui");
+            }
+            else
+            {
+                Debug.Log("no nahui");
+            }
         }
 
         public void OnBeginDrag(PointerEventData eventData)
@@ -155,18 +166,6 @@ namespace Core.Scripts.PuzzleSystem
                 {
                     ParentContainer.RemovePuzzle(this);
                     OnPuzzleReturnedToSpawner?.Invoke(this, _spawner);
-                    // if (_destroyOnReturnToInitialPosition)
-                    // {
-                    //     DestroyNode();
-                    // }
-                    // else
-                    // {
-                    //     //i set this only for start node just not to leave the screen bounds (shitty solution)
-                    //     targetTransform.localPosition = Vector3.zero;
-                    //     _wasDragged = false;
-
-                    //     OnNonDestroyableNodeReturnedToSpawner?.Invoke();
-                    // }
                 }, _spawner.transform);
             }
         }

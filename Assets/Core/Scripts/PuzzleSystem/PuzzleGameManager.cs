@@ -189,5 +189,7 @@ namespace Core.Scripts.PuzzleSystem
 
             return container.gameObject;
         }
+
+        public Transform GetWorkspaceTransform() => _workspaceTransform;
     }
 }
