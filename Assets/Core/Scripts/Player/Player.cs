@@ -8,6 +8,8 @@ public class Player : MonoBehaviour
     public bool IsMoving { get; private set; }
     public bool CanAct { get; set; } = true;
 
+    [field: SerializeField] public SpriteRenderer SpriteRenderer { get; private set; }
+
     [SerializeField] private float _moveSpeed = 5f;
     
     private Vector2 _movementVector;

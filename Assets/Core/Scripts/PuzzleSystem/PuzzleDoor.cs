@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class PuzzleDoor : MonoBehaviour
@@ -6,15 +7,31 @@ public class PuzzleDoor : MonoBehaviour
     public event Action OnPuzzleStart;
     public event Action OnPuzzleEnd;
 
-    public Collider2D _collider;
+    [SerializeField] private FadeScreen _fadeScreen;
+    [SerializeField] private Transform _afterSolvedPuzzleTransform;
+    [Space(20)]
+    [SerializeField] private GameObject _locationBeforePuzzle;
+    [SerializeField] private GameObject _locationAfterPuzzle;
 
-    [SerializeField] private Animator _animator;
+    private void Start()
+    {
+        _locationBeforePuzzle.SetActive(true);
+        _locationAfterPuzzle.SetActive(false);
+    }
 
+    [ContextMenu("Open Door")]
     public void OpenDoor()
     {
-        _collider.enabled = false;
+        IEnumerator FadeToChangeLocation()
+        {
+            yield return StartCoroutine(_fadeScreen.Fade());
+            _locationBeforePuzzle.SetActive(false);
+            _locationAfterPuzzle.SetActive(true);
+            Player.Instance.transform.position = _afterSolvedPuzzleTransform.position;
+            StartCoroutine(_fadeScreen.Appear());
+        }
 
-        //animation;
+        StartCoroutine(FadeToChangeLocation());
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
