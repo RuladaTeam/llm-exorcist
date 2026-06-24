@@ -157,10 +157,10 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 85
-        width: 26
-        height: 17
-      alignment: 0
+        y: 51
+        width: 114
+        height: 51
+      alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
@@ -178,11 +178,11 @@ TextureImporter:
       name: RightHolograms_1
       rect:
         serializedVersion: 2
-        x: 28
-        y: 54
-        width: 73
-        height: 47
-      alignment: 0
+        x: 114
+        y: 51
+        width: 114
+        height: 51
+      alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
@@ -200,11 +200,11 @@ TextureImporter:
       name: RightHolograms_2
       rect:
         serializedVersion: 2
-        x: 102
+        x: 0
         y: 0
-        width: 38
-        height: 102
-      alignment: 0
+        width: 114
+        height: 51
+      alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
@@ -222,11 +222,11 @@ TextureImporter:
       name: RightHolograms_3
       rect:
         serializedVersion: 2
-        x: 142
-        y: 54
-        width: 73
-        height: 47
-      alignment: 0
+        x: 114
+        y: 0
+        width: 114
+        height: 51
+      alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
@@ -240,143 +240,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: RightHolograms_4
-      rect:
-        serializedVersion: 2
-        x: 216
-        y: 0
-        width: 12
-        height: 102
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 65051df492b1e5640800000000000000
-      internalID: 5070520094712483926
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RightHolograms_5
-      rect:
-        serializedVersion: 2
-        x: 7
-        y: 56
-        width: 14
-        height: 25
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: beab45c6860cca8e0800000000000000
-      internalID: -1680757006189413653
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RightHolograms_6
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 34
-        width: 26
-        height: 17
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 716d46d8f3d716f90800000000000000
-      internalID: -6962145837029468649
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RightHolograms_7
-      rect:
-        serializedVersion: 2
-        x: 28
-        y: 3
-        width: 73
-        height: 47
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 8ad1e80f07988ba10800000000000000
-      internalID: 1925439958866075048
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RightHolograms_8
-      rect:
-        serializedVersion: 2
-        x: 142
-        y: 3
-        width: 73
-        height: 47
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0e5c4cc9614e38570800000000000000
-      internalID: 8467862510157219296
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RightHolograms_9
-      rect:
-        serializedVersion: 2
-        x: 7
-        y: 5
-        width: 14
-        height: 25
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: cb62c3703830e95f0800000000000000
-      internalID: -748156626799941956
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 606e9768ca6a1c44caa140c5fda6b243
     internalID: 0
     vertices: []
     indices: 
@@ -390,12 +258,6 @@ TextureImporter:
       RightHolograms_1: -5866140241202201125
       RightHolograms_2: -3811835354065064174
       RightHolograms_3: -3480814530689524585
-      RightHolograms_4: 5070520094712483926
-      RightHolograms_5: -1680757006189413653
-      RightHolograms_6: -6962145837029468649
-      RightHolograms_7: 1925439958866075048
-      RightHolograms_8: 8467862510157219296
-      RightHolograms_9: -748156626799941956
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
