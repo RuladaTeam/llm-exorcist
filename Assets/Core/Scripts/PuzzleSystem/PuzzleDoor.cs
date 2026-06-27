@@ -24,11 +24,19 @@ public class PuzzleDoor : MonoBehaviour
     {
         IEnumerator FadeToChangeLocation()
         {
+            if (Player.Instance != null)
+            {
+                Player.Instance.CanAct = false;
+            }
             yield return StartCoroutine(_fadeScreen.Fade());
             _locationBeforePuzzle.SetActive(false);
             _locationAfterPuzzle.SetActive(true);
             Player.Instance.transform.position = _afterSolvedPuzzleTransform.position;
             StartCoroutine(_fadeScreen.Appear());
+            if (Player.Instance != null)
+            {
+                Player.Instance.CanAct = true;
+            }
         }
 
         StartCoroutine(FadeToChangeLocation());

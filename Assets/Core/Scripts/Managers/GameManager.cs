@@ -19,6 +19,11 @@ public class GameManager : MonoBehaviour
     private bool _canBePaused = true;
     private bool _isSceneLoading;
 
+    private void Update()
+    {
+        Debug.Log(GameStateManager.State);
+    }
+
     private void Awake()
     {
         if (Instance == null)
@@ -94,6 +99,18 @@ public class GameManager : MonoBehaviour
 
         StartCoroutine(LoadScene(e.SceneToLoadName));
     }
+
+    public void LoadMapScene()
+    {
+        if (Player.Instance != null)
+        {
+            Player.Instance.CanAct = false;
+        }
+
+        StartCoroutine(LoadScene("Map"));
+    }
+
+    
 
     private void MapManager_OnMapButtonClick(object sender, MapManager.OnMapButtonClickEventArgs e)
     {
@@ -225,7 +242,7 @@ public class GameManager : MonoBehaviour
         {
             Timer.Instance.DestroyTimer();
         }
-        GameStateManager.State = GameState.MainMenu;
+        //GameStateManager.State = GameState.;
 
         SceneManager.LoadScene(SceneInfo.MAP_SCENE);
     }

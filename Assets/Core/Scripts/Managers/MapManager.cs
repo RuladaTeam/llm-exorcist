@@ -31,19 +31,19 @@ public class MapManager : MonoBehaviour
 
     private void Start()
     {
-        if(GameStateManager.State == GameState.map)
+        if(GameStateManager.State == GameState.map || GameStateManager.State == GameState.lvl1)
         {
             _lvl1Buton.interactable = true;
             _lvl2Buton.interactable = false;
             _lvl3Buton.interactable = false;
         }
-        if (GameStateManager.State == GameState.lvl1)
+        if (GameStateManager.State == GameState.lvl2)
         {
             _lvl1Buton.interactable = true;
             _lvl2Buton.interactable = true;
             _lvl3Buton.interactable = false;
         }
-        if (GameStateManager.State == GameState.lvl2)
+        if (GameStateManager.State == GameState.lvl3)
         {
             _lvl1Buton.interactable = true;
             _lvl2Buton.interactable = true;

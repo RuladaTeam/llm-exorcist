@@ -2891,6 +2891,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -4.47
       objectReference: {fileID: 0}
+    - target: {fileID: 2432494189059309178, guid: 1a88c8ce063cb0969b51588779fa8679, type: 3}
+      propertyPath: _nextGameState
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 2868091503207339207, guid: 1a88c8ce063cb0969b51588779fa8679, type: 3}
       propertyPath: _locationAfterPuzzle
       value: 

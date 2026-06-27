@@ -1750,6 +1750,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2432494189059309178, guid: 1a88c8ce063cb0969b51588779fa8679, type: 3}
+      propertyPath: _nextGameState
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 3863436908933191852, guid: 1a88c8ce063cb0969b51588779fa8679, type: 3}
       propertyPath: m_Name
       value: Managers

@@ -1485,7 +1485,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba33ce23c450dd447a0b3f806101f1ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _overlay: 0
 --- !u!1 &198594930
 GameObject:
   m_ObjectHideFlags: 0
@@ -3600,6 +3599,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.65
       objectReference: {fileID: 0}
+    - target: {fileID: 2432494189059309178, guid: 1a88c8ce063cb0969b51588779fa8679, type: 3}
+      propertyPath: _nextGameState
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 2868091503207339207, guid: 1a88c8ce063cb0969b51588779fa8679, type: 3}
       propertyPath: _locationAfterPuzzle
       value: 
@@ -5090,7 +5093,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba33ce23c450dd447a0b3f806101f1ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _overlay: 0
 --- !u!1 &1119258434
 GameObject:
   m_ObjectHideFlags: 0
@@ -5191,7 +5193,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba33ce23c450dd447a0b3f806101f1ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _overlay: 0
 --- !u!1 &1180948189
 GameObject:
   m_ObjectHideFlags: 0
@@ -5665,7 +5666,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba33ce23c450dd447a0b3f806101f1ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _overlay: 0
 --- !u!1 &1378527073
 GameObject:
   m_ObjectHideFlags: 0
@@ -6023,7 +6023,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba33ce23c450dd447a0b3f806101f1ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _overlay: 0
 --- !u!1 &1411908508
 GameObject:
   m_ObjectHideFlags: 0
@@ -6796,7 +6795,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba33ce23c450dd447a0b3f806101f1ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _overlay: 0
 --- !u!1 &1609651414
 GameObject:
   m_ObjectHideFlags: 0
@@ -8340,7 +8338,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba33ce23c450dd447a0b3f806101f1ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _overlay: 0
 --- !u!1 &2051462404
 GameObject:
   m_ObjectHideFlags: 0
@@ -8557,7 +8554,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba33ce23c450dd447a0b3f806101f1ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _overlay: 0
 --- !u!1 &2078203711
 GameObject:
   m_ObjectHideFlags: 0
@@ -8973,7 +8969,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba33ce23c450dd447a0b3f806101f1ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _overlay: 0
 --- !u!1 &2140963441
 GameObject:
   m_ObjectHideFlags: 0

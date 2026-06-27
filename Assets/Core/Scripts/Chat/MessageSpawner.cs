@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using TMPro;
 using Unity.VisualScripting;
@@ -12,6 +13,8 @@ public class MessageSpawner : MonoBehaviour
     {
         public string response;
     }
+
+    public static event Action OnChatEnded;
 
     [SerializeField] private string serverUrl = "http://192.168.0.228/exorcist/api/chat";
     [Space(30)]
