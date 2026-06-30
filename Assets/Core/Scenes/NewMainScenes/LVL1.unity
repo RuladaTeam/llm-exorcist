@@ -630,7 +630,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -3
-  m_Sprite: {fileID: 21300000, guid: 0dfa9df3a50086d42974ef49c573131b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6351244266e79c34f941fb01206fb027, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1652,22 +1652,22 @@ PolygonCollider2D:
     m_Paths:
     - - {x: 1.3431473, y: 1.6478987}
       - {x: -1.2043447, y: 1.6338995}
-      - {x: -2.361261, y: 0.5606966}
-      - {x: -3.2647247, y: 0.3485961}
-      - {x: -3.174263, y: -0.7430506}
+      - {x: -2.6236129, y: 1.1863022}
+      - {x: -3.3901062, y: 0.54920626}
+      - {x: -3.458458, y: -0.77648544}
       - {x: -3.2337036, y: -2.0313787}
       - {x: -2.6118317, y: -3.2060857}
-      - {x: -1.6400833, y: -4.2847457}
+      - {x: -1.8265533, y: -4.2723145}
       - {x: -1.1921234, y: -4.28199}
-      - {x: -1.19207, y: -2.6522603}
-      - {x: 0.8327942, y: -2.6372933}
-      - {x: 1.1418915, y: -4.2576876}
-      - {x: 1.5375366, y: -4.2721486}
-      - {x: 2.6526031, y: -3.3038096}
-      - {x: 3.2244964, y: -2.0761976}
-      - {x: 3.3667755, y: -0.8638525}
-      - {x: 3.3901901, y: 0.277843}
-      - {x: 2.4319983, y: 0.5259776}
+      - {x: -1.1551819, y: -3.2738528}
+      - {x: 0.84807587, y: -3.2702966}
+      - {x: 1.1418915, y: -4.2701187}
+      - {x: 1.6804962, y: -4.2845798}
+      - {x: 2.8059692, y: -3.2599921}
+      - {x: 3.2298598, y: -2.3659844}
+      - {x: 3.5074234, y: -0.94946384}
+      - {x: 3.5096893, y: 0.5632372}
+      - {x: 2.8148184, y: 1.2771726}
   m_UseDelaunayMesh: 0
 --- !u!1 &588904418
 GameObject:
@@ -2437,6 +2437,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PauseMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 261346975592811533, guid: a3885051aaa11526c80892e25e5cc096, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4952186156217641024, guid: a3885051aaa11526c80892e25e5cc096, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2919,6 +2923,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Managers
       objectReference: {fileID: 0}
+    - target: {fileID: 3863436908933191852, guid: 1a88c8ce063cb0969b51588779fa8679, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3891074517903240712, guid: 1a88c8ce063cb0969b51588779fa8679, type: 3}
       propertyPath: m_Size.x
       value: 2.6963387
@@ -3340,7 +3348,7 @@ Transform:
   m_GameObject: {fileID: 1196948709}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.752407, y: 3.732901, z: -10}
+  m_LocalPosition: {x: 8.751389, y: 3.732901, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3753,6 +3761,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4869898052932873034, guid: c442972c223fd794e80160357b0f13f1, type: 3}
+    - {fileID: 7032843552147757415, guid: c442972c223fd794e80160357b0f13f1, type: 3}
+    - {fileID: 6776800947394479265, guid: c442972c223fd794e80160357b0f13f1, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 8762372095760640447, guid: c442972c223fd794e80160357b0f13f1, type: 3}
@@ -4198,6 +4208,10 @@ PrefabInstance:
     - target: {fileID: 5488528734458975023, guid: 878c863a000d1634696d139f3184c1cc, type: 3}
       propertyPath: m_Name
       value: JournalCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 5488528734458975023, guid: 878c863a000d1634696d139f3184c1cc, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6469724540635400858, guid: 878c863a000d1634696d139f3184c1cc, type: 3}
       propertyPath: m_AnchoredPosition.y
