@@ -560,8 +560,8 @@ MonoBehaviour:
   <OrderInSequence>k__BackingField: 0
   <ParentContainer>k__BackingField: {fileID: 0}
   _connectionAreaRect: {fileID: 7801542957581355498}
-  _puzzleText: {fileID: 0}
-  _puzzleDescription: {fileID: 0}
+  _puzzleText: {fileID: 7213321950979252886}
+  _puzzleDescription: {fileID: 8222696497483180576}
 --- !u!114 &4906901658655633439
 MonoBehaviour:
   m_ObjectHideFlags: 0

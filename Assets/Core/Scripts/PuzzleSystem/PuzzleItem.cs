@@ -52,11 +52,6 @@ namespace Core.Scripts.PuzzleSystem
             if (TryGetComponent<HoverableObject>(out var hoverableObject))
             {
                 hoverableObject.SetGlobalTransform(GetPuzzleGameManager().GetWorkspaceTransform());
-                Debug.Log("yes nahui");
-            }
-            else
-            {
-                Debug.Log("no nahui");
             }
         }
 
@@ -64,7 +59,7 @@ namespace Core.Scripts.PuzzleSystem
         {
             if (ParentContainer == null)
             {
-                Debug.LogError("parent is null watafuk");
+                Debug.LogError("parent is null");
                 Destroy(gameObject);
                 return;
             }
@@ -87,7 +82,7 @@ namespace Core.Scripts.PuzzleSystem
 
             if (ParentContainer == null)
             {
-                Debug.LogError("parent is null watafuk");
+                Debug.LogError("parent is null");
                 Destroy(gameObject);
                 return;
             }
@@ -104,7 +99,7 @@ namespace Core.Scripts.PuzzleSystem
         {
             if (ParentContainer == null)
             {
-                Debug.LogError("parent is null watafuk");
+                Debug.LogError("parent is null");
                 Destroy(gameObject);
                 return;
             }

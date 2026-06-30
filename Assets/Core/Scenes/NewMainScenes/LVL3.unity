@@ -571,7 +571,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 7
+  m_SortingOrder: 9
   m_Sprite: {fileID: -904867762, guid: 0a73bc5eb2cde7d46b58eecf8486c2cb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1667,7 +1667,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 7
+  m_SortingOrder: 8
   m_Sprite: {fileID: -1728323268616076600, guid: 573df4b03bdae574f8cfe11ba6fa51e1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2784,7 +2784,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 6
+  m_SortingOrder: 8
   m_Sprite: {fileID: 4979363154352999712, guid: e08ddc060a4a7ee43ba7416b1cd21ab5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -5264,7 +5264,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.8576337, y: 0.101918936}
+  m_Offset: {x: -0.8576337, y: -0.15776074}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -5274,7 +5274,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.0524027, y: 1.4525886}
+  m_Size: {x: 1.0524027, y: 1.5045245}
   m_EdgeRadius: 0
 --- !u!1 &1812583714
 GameObject:
@@ -5380,7 +5380,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 608b9ead3f9e28b4f85bb9d49fa2ff64, type: 2}
     - target: {fileID: 3986032079147163893, guid: 51339a05ef5032744af01a97521996e0, type: 3}
       propertyPath: _isDestroyingInTheEnd
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3986032079147163893, guid: 51339a05ef5032744af01a97521996e0, type: 3}
       propertyPath: _puzzleDatas.Array.size
