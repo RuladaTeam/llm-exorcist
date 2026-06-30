@@ -143,11 +143,24 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BarStaticStuff_0
+      name: BarAtlas_0
       rect:
         serializedVersion: 2
         x: 0
@@ -160,16 +173,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 28a5b63761152a020800000000000000
-      internalID: 2351531112308365954
+      spriteID: e975d48443673bc488c4608f8f51437d
+      internalID: -1534858270
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BarStaticStuff_1
+      name: BarAtlas_1
       rect:
         serializedVersion: 2
         x: 62
@@ -182,16 +195,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 11d7758fe6ea82520800000000000000
-      internalID: 2677581770107878673
+      spriteID: bd81ea14fb9e9f94286d9dca087ed8a4
+      internalID: 897935930
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BarStaticStuff_2
+      name: BarAtlas_2
       rect:
         serializedVersion: 2
         x: 101
@@ -204,38 +217,38 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: b4e439690d11a1500800000000000000
-      internalID: 367625907161222731
+      spriteID: 09cae6f3d1565b94087ecc93b1b0b6b7
+      internalID: -904867762
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BarStaticStuff_3
+      name: BarAtlas_3
       rect:
         serializedVersion: 2
-        x: 357
-        y: 89
-        width: 63
-        height: 73
+        x: 64
+        y: 48
+        width: 31
+        height: 37
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 4d46663474fc39b70800000000000000
-      internalID: 8904688793222014164
+      spriteID: cbfacc360e6b9e44abc62407b00ff3a6
+      internalID: 201982469
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BarStaticStuff_7
+      name: BarAtlas_4
       rect:
         serializedVersion: 2
         x: 0
@@ -248,10 +261,32 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: e65e9755dedd78f70800000000000000
-      internalID: 9189557576083826030
+      spriteID: 126daf4f635bac64bb3b875b71cc4345
+      internalID: -379134717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BarAtlas_5
+      rect:
+        serializedVersion: 2
+        x: 357
+        y: 89
+        width: 63
+        height: 75
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e717175ac1c508b4aaf71eebf26ae317
+      internalID: 1224126359
       vertices: []
       indices: 
       edges: []
@@ -270,14 +305,12 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      BarStaticStuff_0: 2351531112308365954
-      BarStaticStuff_1: 2677581770107878673
-      BarStaticStuff_2: 367625907161222731
-      BarStaticStuff_3: 8904688793222014164
-      BarStaticStuff_4: -7621684741174099246
-      BarStaticStuff_5: 1833757913075415643
-      BarStaticStuff_6: -1381224007014801211
-      BarStaticStuff_7: 9189557576083826030
+      BarAtlas_0: -1534858270
+      BarAtlas_1: 897935930
+      BarAtlas_2: -904867762
+      BarAtlas_3: 201982469
+      BarAtlas_4: -379134717
+      BarAtlas_5: 1224126359
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

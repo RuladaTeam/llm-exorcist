@@ -19,11 +19,6 @@ public class GameManager : MonoBehaviour
     private bool _canBePaused = true;
     private bool _isSceneLoading;
 
-    private void Update()
-    {
-        Debug.Log(GameStateManager.State);
-    }
-
     private void Awake()
     {
         if (Instance == null)
