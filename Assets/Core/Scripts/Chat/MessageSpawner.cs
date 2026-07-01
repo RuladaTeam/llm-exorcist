@@ -63,6 +63,7 @@ public class MessageSpawner : MonoBehaviour
     {
         _isRequestInProgress = true;
         _inputField.interactable = false;
+        Player.Instance.CanAct = false;
 
         // Формируем URL с параметром msg
         // UnityWebRequest.EscapeURL кодирует специальные символы для безопасной передачи
@@ -104,6 +105,7 @@ public class MessageSpawner : MonoBehaviour
 
         _isRequestInProgress = false;
         _inputField.interactable = true;
+        Player.Instance.CanAct = true;
         _inputField.ActivateInputField(); // Возвращаем фокус на поле ввода
     }
 
