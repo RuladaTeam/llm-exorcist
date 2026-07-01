@@ -2259,10 +2259,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 632401082095428237, guid: 1a88c8ce063cb0969b51588779fa8679, type: 3}
-      propertyPath: Target.TrackingTarget
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 967698161154102403, guid: 1a88c8ce063cb0969b51588779fa8679, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.77
@@ -2311,6 +2307,14 @@ PrefabInstance:
       propertyPath: m_Icon
       value: 
       objectReference: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
+    - target: {fileID: 3432102940898697746, guid: 1a88c8ce063cb0969b51588779fa8679, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5.77
+      objectReference: {fileID: 0}
+    - target: {fileID: 3432102940898697746, guid: 1a88c8ce063cb0969b51588779fa8679, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5.45
+      objectReference: {fileID: 0}
     - target: {fileID: 3671627584155506190, guid: 1a88c8ce063cb0969b51588779fa8679, type: 3}
       propertyPath: m_LocalPosition.x
       value: -96.1
@@ -4711,7 +4715,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 608b9ead3f9e28b4f85bb9d49fa2ff64, type: 2}
     - target: {fileID: 3986032079147163893, guid: 51339a05ef5032744af01a97521996e0, type: 3}
       propertyPath: _isDestroyingInTheEnd
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3986032079147163893, guid: 51339a05ef5032744af01a97521996e0, type: 3}
       propertyPath: _puzzleDatas.Array.size

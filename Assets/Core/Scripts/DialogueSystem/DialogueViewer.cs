@@ -281,8 +281,8 @@ public class DialogueViewer : MonoBehaviour
 
     private void Reseter()
     {
-        _simplePhraseChamber.color = Color.black;
-        _nameChamber.color = Color.black;
+        _simplePhraseChamber.color = Color.white;
+        _nameChamber.color = Color.green;
         _gradeChamber.color = Color.red;
         _gradeLine.color = Color.clear;
         _simplePhraseChamber.text = string.Empty;

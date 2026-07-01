@@ -227,7 +227,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 4
+  m_SortingOrder: 10
   m_Sprite: {fileID: 1846361031112771009, guid: 80a65146e22952b4d83f3afd0674f987, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1607,7 +1607,7 @@ PolygonCollider2D:
     m_Paths:
     - - {x: 1.3431473, y: 1.6478987}
       - {x: -1.2043447, y: 1.6338995}
-      - {x: -2.6236129, y: 1.1863022}
+      - {x: -2.4310088, y: 0.62775326}
       - {x: -3.3901062, y: 0.54920626}
       - {x: -3.458458, y: -0.77648544}
       - {x: -3.2337036, y: -2.0313787}
@@ -1622,7 +1622,7 @@ PolygonCollider2D:
       - {x: 3.2298598, y: -2.3659844}
       - {x: 3.5074234, y: -0.94946384}
       - {x: 3.5096893, y: 0.5632372}
-      - {x: 2.8148184, y: 1.2771726}
+      - {x: 2.4873877, y: 0.5260205}
   m_UseDelaunayMesh: 0
 --- !u!1 &588904418
 GameObject:
@@ -1938,7 +1938,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 4
+  m_SortingOrder: 9
   m_Sprite: {fileID: 21300000, guid: 2bb900f52b3fdf547b8f6b9315c4ba01, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2964,6 +2964,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1328822226}
   - component: {fileID: 1328822227}
+  - component: {fileID: 1328822228}
   m_Layer: 0
   m_Name: BackChairs
   m_TagString: Untagged
@@ -3041,6 +3042,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1328822228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1328822225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba33ce23c450dd447a0b3f806101f1ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1412523272
 GameObject:
   m_ObjectHideFlags: 0

@@ -402,6 +402,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: CameraManager
       objectReference: {fileID: 0}
+    - target: {fileID: 1743864769085968070, guid: 0532411e777a7e844a6817564bfc1b6a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.89
+      objectReference: {fileID: 0}
+    - target: {fileID: 1743864769085968070, guid: 0532411e777a7e844a6817564bfc1b6a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.16
+      objectReference: {fileID: 0}
     - target: {fileID: 1824787101372418024, guid: 0532411e777a7e844a6817564bfc1b6a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
