@@ -2263,6 +2263,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 687283642715021256, guid: 1a88c8ce063cb0969b51588779fa8679, type: 3}
+      propertyPath: m_Size.x
+      value: 2.0835304
+      objectReference: {fileID: 0}
+    - target: {fileID: 687283642715021256, guid: 1a88c8ce063cb0969b51588779fa8679, type: 3}
+      propertyPath: m_Size.y
+      value: 1.7282772
+      objectReference: {fileID: 0}
+    - target: {fileID: 687283642715021256, guid: 1a88c8ce063cb0969b51588779fa8679, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.115457535
+      objectReference: {fileID: 0}
+    - target: {fileID: 687283642715021256, guid: 1a88c8ce063cb0969b51588779fa8679, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.3641386
+      objectReference: {fileID: 0}
     - target: {fileID: 967698161154102403, guid: 1a88c8ce063cb0969b51588779fa8679, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.77
@@ -2298,6 +2314,14 @@ PrefabInstance:
     - target: {fileID: 2432494189059309178, guid: 1a88c8ce063cb0969b51588779fa8679, type: 3}
       propertyPath: _nextGameState
       value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 2688415037716236336, guid: 1a88c8ce063cb0969b51588779fa8679, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 39.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 2688415037716236336, guid: 1a88c8ce063cb0969b51588779fa8679, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 7.54
       objectReference: {fileID: 0}
     - target: {fileID: 2868091503207339207, guid: 1a88c8ce063cb0969b51588779fa8679, type: 3}
       propertyPath: _locationAfterPuzzle
@@ -2347,6 +2371,10 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: -0.06955344
       objectReference: {fileID: 0}
+    - target: {fileID: 4088220443020372264, guid: 1a88c8ce063cb0969b51588779fa8679, type: 3}
+      propertyPath: _levelNameToServer
+      value: cyberpunk
+      objectReference: {fileID: 0}
     - target: {fileID: 5054670304365444180, guid: 1a88c8ce063cb0969b51588779fa8679, type: 3}
       propertyPath: m_BackGroundColor.b
       value: 0.108
@@ -2382,6 +2410,10 @@ PrefabInstance:
     - target: {fileID: 6135745250649855961, guid: 1a88c8ce063cb0969b51588779fa8679, type: 3}
       propertyPath: m_LocalPosition.y
       value: 2.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 7322501272529247240, guid: 1a88c8ce063cb0969b51588779fa8679, type: 3}
+      propertyPath: m_text
+      value: "\u0426\u0435\u0440\u0431\u0435\u0440"
       objectReference: {fileID: 0}
     - target: {fileID: 7579891340257416511, guid: 1a88c8ce063cb0969b51588779fa8679, type: 3}
       propertyPath: m_LocalPosition.x

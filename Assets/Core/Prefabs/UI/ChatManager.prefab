@@ -750,7 +750,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -300}
-  m_SizeDelta: {x: 1600, y: 750}
+  m_SizeDelta: {x: 1600, y: 724.938}
   m_Pivot: {x: 0.5, y: -0.00000008568168}
 --- !u!222 &6135271169907047106
 CanvasRenderer:
@@ -940,12 +940,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serverUrl: http://192.168.0.228/exorcist/api/chat?msg="wfwfw"
-  _AIName: {fileID: 1839026538198117075}
   _inputField: {fileID: 5403362961505007155}
   _contentTransform: {fileID: 1627827628637770621}
   _scrollRect: {fileID: 3351141106751655212}
   _myMessage: {fileID: 6414398779123121393, guid: 41bf9e3281f970f4c8a2ee3494bd8626, type: 3}
   _AIMessage: {fileID: 6994438503656174054, guid: 34febabe705f8ab4eabae0f595e05a63, type: 3}
+  _levelNameToServer: 
 --- !u!1 &6638446270729467681
 GameObject:
   m_ObjectHideFlags: 0
