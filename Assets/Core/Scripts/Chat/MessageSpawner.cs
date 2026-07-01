@@ -11,18 +11,27 @@ public class MessageSpawner : MonoBehaviour
 {
     private class MessageResponse
     {
-        public string response;
+        public string text;
+        public bool passed;
+    }
+
+    public class MessageRequest
+    {
+        public string level;
+        public string text;
     }
 
     public static event Action OnChatEnded;
 
-    [SerializeField] private string serverUrl = "http://192.168.0.228/exorcist/api/chat";
+    [SerializeField] private string serverUrl = "http://localhost:8000/predict";
     [Space(30)]
     [SerializeField] private TMP_InputField _inputField;
     [SerializeField] private Transform _contentTransform;
     [SerializeField] private ScrollRect _scrollRect;
     [SerializeField] private GameObject _myMessage;
     [SerializeField] private GameObject _AIMessage;
+    [Space(30)]
+    [SerializeField] private string _level;
 
     private InputSystem_Actions _inputSystem_Actions;
     private bool _isRequestInProgress = false;
@@ -56,10 +65,10 @@ public class MessageSpawner : MonoBehaviour
             return;
         }
 
-        StartCoroutine(SendMessageCoroutine(text));
+        StartCoroutine(SendMessageCoroutine(text, _level));
     }
 
-    private IEnumerator SendMessageCoroutine(string text)
+    private IEnumerator SendMessageCoroutine(string text, string level)
     {
         _isRequestInProgress = true;
         _inputField.interactable = false;
@@ -68,13 +77,23 @@ public class MessageSpawner : MonoBehaviour
         // Формируем URL с параметром msg
         // UnityWebRequest.EscapeURL кодирует специальные символы для безопасной передачи
         string escapedMessage = UnityWebRequest.EscapeURL(text);
-        string fullUrl = $"{serverUrl}?msg={escapedMessage}";
+        string fullUrl = $"{serverUrl}";
 
         Debug.Log($"Отправка запроса: {fullUrl}");
 
+        MessageRequest requestData = new MessageRequest();
+        requestData.level = level;
+        requestData.text = text;
+
+        string jsonData = JsonUtility.ToJson(requestData);
+        byte[] bodyRaw = System.Text.Encoding.UTF8.GetBytes(jsonData);
+
         // Используем GET запрос вместо POST
-        using (UnityWebRequest www = UnityWebRequest.Get(fullUrl))
+        using (UnityWebRequest www = new UnityWebRequest(fullUrl, "POST"))
         {
+            www.uploadHandler = new UploadHandlerRaw(bodyRaw);
+            www.uploadHandler.contentType = "application/json"; // Crucial: tells the server it's JSON
+
             www.downloadHandler = new DownloadHandlerBuffer();
 
             yield return www.SendWebRequest();
@@ -86,9 +105,10 @@ public class MessageSpawner : MonoBehaviour
                     MessageResponse response = JsonUtility.FromJson<MessageResponse>(www.downloadHandler.text);
 
                     TextMeshProUGUI currentMessage = Instantiate(_AIMessage, _contentTransform).transform.GetComponentInChildren<TextMeshProUGUI>();
-                    currentMessage.text = response.response;
+                    currentMessage.text = response.text;
+                    bool didPass = response.passed;
 
-                    Debug.Log($"Получен ответ: {response.response}");
+                    Debug.Log($"Получен ответ: {response.text}, прошел: {didPass}");
                 }
                 catch (System.Exception e)
                 {
@@ -116,7 +136,7 @@ public class MessageSpawner : MonoBehaviour
             TextMeshProUGUI currentMessage = Instantiate(_myMessage, _contentTransform).transform.GetComponentInChildren<TextMeshProUGUI>();
             currentMessage.text = _inputField.text;
 
-            StartCoroutine(SendMessageCoroutine(_inputField.text));
+            SendMessageToServer(_inputField.text);
 
             _inputField.text = "";
 
