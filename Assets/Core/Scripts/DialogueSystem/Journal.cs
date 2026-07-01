@@ -5,12 +5,13 @@ using UnityEngine.UI;
 public class Journal : MonoBehaviour
 {
     [SerializeField] private Button _journalButton;
-    [SerializeField] private GameObject _fullJournal;
+    [SerializeField] private GameObject _journalMask;
     [Space(20)]
     [SerializeField] private Transform _journalContent;
     [Space(20)]
     [SerializeField] private GameObject _simplePhrase;
     [SerializeField] private GameObject _space;
+    private Animator _journalAnimator;
 
     public static bool IsJournalOpen { get; private set; }
 
@@ -23,7 +24,8 @@ public class Journal : MonoBehaviour
         _journalButton.onClick.AddListener(OpenCloseJournal);
 
         IsJournalOpen = false;
-        _fullJournal.SetActive(false);
+        _journalMask.SetActive(false);
+        _journalAnimator = gameObject.GetComponent<Animator>();
     }
 
     private void OnDisable()
@@ -49,8 +51,23 @@ public class Journal : MonoBehaviour
 
     private void OpenCloseJournal()
     {
-        _fullJournal.SetActive(!_fullJournal.activeSelf);
-        IsJournalOpen = _fullJournal.activeSelf;
+        if (IsJournalOpen)
+        {
+            _journalAnimator.SetBool("IsOn", false);
+            Debug.Log("Journal was opened now closed" + IsJournalOpen);
+        }
+        else
+        {
+            _journalAnimator.SetBool("IsOn", true);
+            Debug.Log("Journal was closed now opened" + IsJournalOpen);
+        }
+    }
+
+    private void EnableDisableMask()
+    {
+        _journalMask.SetActive(!_journalMask.activeSelf);
+        IsJournalOpen = _journalMask.activeSelf;
+        Debug.Log("mask is switched");
     }
 
     private void SetJournalButton_OnCreditBookAction(object sender, EventArgs e)
