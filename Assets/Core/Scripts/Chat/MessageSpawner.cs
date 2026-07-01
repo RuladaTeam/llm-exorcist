@@ -31,7 +31,7 @@ public class MessageSpawner : MonoBehaviour
     [SerializeField] private GameObject _myMessage;
     [SerializeField] private GameObject _AIMessage;
     [Space(30)]
-    [SerializeField] private string _level;
+    [SerializeField] private string _levelNameToServer;
 
     private InputSystem_Actions _inputSystem_Actions;
     private bool _isRequestInProgress = false;
@@ -65,14 +65,15 @@ public class MessageSpawner : MonoBehaviour
             return;
         }
 
-        StartCoroutine(SendMessageCoroutine(text, _level));
+        StartCoroutine(SendMessageCoroutine(text, _levelNameToServer));
     }
 
     private IEnumerator SendMessageCoroutine(string text, string level)
     {
         _isRequestInProgress = true;
         _inputField.interactable = false;
-        Player.Instance.CanAct = false;
+        if (Player.Instance != null)
+            Player.Instance.CanAct = false;
 
         // Формируем URL с параметром msg
         // UnityWebRequest.EscapeURL кодирует специальные символы для безопасной передачи
@@ -89,7 +90,7 @@ public class MessageSpawner : MonoBehaviour
         byte[] bodyRaw = System.Text.Encoding.UTF8.GetBytes(jsonData);
 
         // Используем GET запрос вместо POST
-        using (UnityWebRequest www = new UnityWebRequest(fullUrl, "POST"))
+        using (UnityWebRequest www = new UnityWebRequest("http://localhost:8000/predict", "POST"))
         {
             www.uploadHandler = new UploadHandlerRaw(bodyRaw);
             www.uploadHandler.contentType = "application/json"; // Crucial: tells the server it's JSON
@@ -125,7 +126,8 @@ public class MessageSpawner : MonoBehaviour
 
         _isRequestInProgress = false;
         _inputField.interactable = true;
-        Player.Instance.CanAct = true;
+        if (Player.Instance != null)
+            Player.Instance.CanAct = true;
         _inputField.ActivateInputField(); // Возвращаем фокус на поле ввода
     }
 
