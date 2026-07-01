@@ -76,7 +76,7 @@ public class DialogueViewer : MonoBehaviour
             StartCoroutine(Ender());
             _isTimerEnding = true;
         }
-        
+
         if (IsCurrentViewerActive() && CurrentDialogueElement != null)
         {
             if (CurrentDialogueElement.TypeOfDialogue == TypeOfDialogue.SimplePhrases && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.E)) && _simplePhraseChamber.text.Length > 1)
@@ -113,7 +113,7 @@ public class DialogueViewer : MonoBehaviour
             {
                 _gradeChamber.text = "...";
                 _gradeLine.color = Color.clear;
-            } 
+            }
         }
     }
 
@@ -126,7 +126,7 @@ public class DialogueViewer : MonoBehaviour
         IsGoing = false;
         _dialogueAnimator.SetTrigger(_triggerForEndName);
 
-        if(_dialogueBunch.PuzzleItemDatas.Count > 0)
+        if (_dialogueBunch.PuzzleItemDatas.Count > 0)
         {
             foreach (PuzzleItemDataStruct puzzleItemData in _dialogueBunch.PuzzleItemDatas)
             {
@@ -226,7 +226,7 @@ public class DialogueViewer : MonoBehaviour
             if (_canResulting && _dialogueBunch.IsReputationable)
             {
                 CurrentDialogueElement = _dialogueSetter.SetNewDialogue();
-                if(CurrentDialogueElement != null)
+                if (CurrentDialogueElement != null)
                 {
                     _canResulting = false;
                     ViewDialogue();
@@ -282,7 +282,7 @@ public class DialogueViewer : MonoBehaviour
     private void Reseter()
     {
         _simplePhraseChamber.color = Color.white;
-        _nameChamber.color = Color.green;
+        _nameChamber.color = Color.white;
         _gradeChamber.color = Color.red;
         _gradeLine.color = Color.clear;
         _simplePhraseChamber.text = string.Empty;
