@@ -254,6 +254,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 166a21a32e0d29443976b6f3e69db669, type: 2}
     - target: {fileID: 2449442824518678378, guid: c442972c223fd794e80160357b0f13f1, type: 3}
+      propertyPath: _isDestroyingInTheEnd
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2449442824518678378, guid: c442972c223fd794e80160357b0f13f1, type: 3}
       propertyPath: _puzzleDatas.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -1068,7 +1072,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: c28e9ceb6f33094478ad52b437b9a2aa, type: 2}
     - target: {fileID: 3986032079147163893, guid: 51339a05ef5032744af01a97521996e0, type: 3}
       propertyPath: _isDestroyingInTheEnd
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6251168295855576335, guid: 51339a05ef5032744af01a97521996e0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1861,6 +1865,10 @@ PrefabInstance:
       propertyPath: _dialogueBunch
       value: 
       objectReference: {fileID: 11400000, guid: bbcbf1d6235caa940b8ba38b807c4b87, type: 2}
+    - target: {fileID: 2449442824518678378, guid: c442972c223fd794e80160357b0f13f1, type: 3}
+      propertyPath: _isDestroyingInTheEnd
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6237725232335023979, guid: c442972c223fd794e80160357b0f13f1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 89.57
@@ -2593,6 +2601,10 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: ece4d6c6234c4a248a0a31ba28a56631, type: 2}
     - target: {fileID: 2449442824518678378, guid: c442972c223fd794e80160357b0f13f1, type: 3}
       propertyPath: _isActiveOnStart
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2449442824518678378, guid: c442972c223fd794e80160357b0f13f1, type: 3}
+      propertyPath: _isDestroyingInTheEnd
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2449442824518678378, guid: c442972c223fd794e80160357b0f13f1, type: 3}
@@ -3361,6 +3373,10 @@ PrefabInstance:
       propertyPath: _dialogueBunch
       value: 
       objectReference: {fileID: 11400000, guid: df505c55648d8fa4e886cbdd61910886, type: 2}
+    - target: {fileID: 2449442824518678378, guid: c442972c223fd794e80160357b0f13f1, type: 3}
+      propertyPath: _isDestroyingInTheEnd
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2449442824518678378, guid: c442972c223fd794e80160357b0f13f1, type: 3}
       propertyPath: _puzzleDatas.Array.size
       value: 1
@@ -4986,6 +5002,10 @@ PrefabInstance:
       propertyPath: _dialogueBunch
       value: 
       objectReference: {fileID: 11400000, guid: 196bc3594085adc438eab069a95829e6, type: 2}
+    - target: {fileID: 2449442824518678378, guid: c442972c223fd794e80160357b0f13f1, type: 3}
+      propertyPath: _isDestroyingInTheEnd
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4869898052932873034, guid: c442972c223fd794e80160357b0f13f1, type: 3}
       propertyPath: m_Size.y
       value: 2.756671
@@ -5608,7 +5628,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 8590176fe4d2e9d4da4197effe459ac7, type: 2}
     - target: {fileID: 3986032079147163893, guid: 51339a05ef5032744af01a97521996e0, type: 3}
       propertyPath: _isDestroyingInTheEnd
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6251168295855576335, guid: 51339a05ef5032744af01a97521996e0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5931,6 +5951,10 @@ PrefabInstance:
       propertyPath: _dialogueBunch
       value: 
       objectReference: {fileID: 11400000, guid: 5f77e933801f3074581f48f6633dcb83, type: 2}
+    - target: {fileID: 2449442824518678378, guid: c442972c223fd794e80160357b0f13f1, type: 3}
+      propertyPath: _isDestroyingInTheEnd
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6237725232335023979, guid: c442972c223fd794e80160357b0f13f1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 35.88
@@ -7090,6 +7114,10 @@ PrefabInstance:
       propertyPath: _dialogueBunch
       value: 
       objectReference: {fileID: 11400000, guid: ac4512b9450736944af6dadcb27c2228, type: 2}
+    - target: {fileID: 3986032079147163893, guid: 51339a05ef5032744af01a97521996e0, type: 3}
+      propertyPath: _isDestroyingInTheEnd
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6251168295855576335, guid: 51339a05ef5032744af01a97521996e0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 85.98
@@ -7164,6 +7192,10 @@ PrefabInstance:
       propertyPath: _dialogueBunch
       value: 
       objectReference: {fileID: 11400000, guid: 4e80148f2cb6d614089a8e3b50c32edc, type: 2}
+    - target: {fileID: 2449442824518678378, guid: c442972c223fd794e80160357b0f13f1, type: 3}
+      propertyPath: _isDestroyingInTheEnd
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4869898052932873034, guid: c442972c223fd794e80160357b0f13f1, type: 3}
       propertyPath: m_Size.x
       value: 1.7038498

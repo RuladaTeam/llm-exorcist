@@ -1,6 +1,7 @@
 using System;
 using Assets.Core.Scripts.PuzzleSystem;
 using DG.Tweening;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Core.Scripts.PuzzleSystem
@@ -78,18 +79,20 @@ namespace Core.Scripts.PuzzleSystem
         {
             var puzzles = container.GetNestedPuzzlesArray();
 
-            foreach (string order in _puzzleOrders)
+            foreach (string correctOrder in _puzzleOrders)
             {
-                if (puzzles.Length != order.Length)
+                if (puzzles.Length != correctOrder.Length)
                 {
+                    Debug.Log("hiiiii " + puzzles.Length + " " + correctOrder.Length);
                     continue;
                 }
 
                 bool correct = true;
-                for (int i = 0; i < order.Length; i++)
+                for (int i = 0; i < correctOrder.Length; i++)
                 {
-                    if (puzzles[i].OrderInSequence != order[i] || puzzles[i].IsActive == false)
+                    if (puzzles[i].OrderInSequence.ToString()    != correctOrder[i].ToString() || puzzles[i].IsActive == false)
                     {
+                        Debug.Log("111111 " + puzzles[i].OrderInSequence);
                         correct = false;
                         break;
                     }
@@ -101,6 +104,13 @@ namespace Core.Scripts.PuzzleSystem
                     _puzzleDoor.OpenDoor();
                     return;
                 }
+
+                //string order1 = "";
+                //foreach(var puzzle in puzzles)
+                //{
+                //    order1 += puzzle.OrderInSequence.ToString();
+                //}
+                //Debug.Log("Puzzle order is wrong: " + order1 + " " + puzzles.Length);
             }
 
             //foreach (var puzzle in puzzles)
