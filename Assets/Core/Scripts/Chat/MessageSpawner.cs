@@ -106,10 +106,20 @@ public class MessageSpawner : MonoBehaviour
                     MessageResponse response = JsonUtility.FromJson<MessageResponse>(www.downloadHandler.text);
 
                     TextMeshProUGUI currentMessage = Instantiate(_AIMessage, _contentTransform).transform.GetComponentInChildren<TextMeshProUGUI>();
-                    currentMessage.text = response.text;
-                    bool didPass = response.passed;
 
-                    Debug.Log($"Получен ответ: {response.text}, прошел: {didPass}");
+                    if (response.passed)
+                    {
+                        currentMessage.text = "Уровень пройден. Поздравляю!";
+                        OnChatEnded.Invoke();
+
+                    }
+                    else
+                    {
+                        currentMessage.text = response.text;
+
+                    }
+
+                    Debug.Log($"Получен ответ: {response.text}, прошел: {response.passed}");
                 }
                 catch (System.Exception e)
                 {

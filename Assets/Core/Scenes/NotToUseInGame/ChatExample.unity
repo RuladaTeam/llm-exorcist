@@ -355,6 +355,14 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4946938305349099507, guid: 8013407ddf8c58e46a3b924d44b6eec9, type: 3}
+      propertyPath: _level
+      value: LLM requests changed
+      objectReference: {fileID: 0}
+    - target: {fileID: 4946938305349099507, guid: 8013407ddf8c58e46a3b924d44b6eec9, type: 3}
+      propertyPath: _levelNameToServer
+      value: tony_stark
+      objectReference: {fileID: 0}
     - target: {fileID: 4987615893389307432, guid: 8013407ddf8c58e46a3b924d44b6eec9, type: 3}
       propertyPath: m_Name
       value: ChatManager
