@@ -3264,6 +3264,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LVLBase
       objectReference: {fileID: 0}
+    - target: {fileID: 3969302110418325285, guid: 1a88c8ce063cb0969b51588779fa8679, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.6330231
+      objectReference: {fileID: 0}
+    - target: {fileID: 3969302110418325285, guid: 1a88c8ce063cb0969b51588779fa8679, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 3.160993
+      objectReference: {fileID: 0}
     - target: {fileID: 4088220443020372264, guid: 1a88c8ce063cb0969b51588779fa8679, type: 3}
       propertyPath: _levelNameToServer
       value: subnautica

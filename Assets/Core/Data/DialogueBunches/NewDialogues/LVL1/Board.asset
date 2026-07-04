@@ -33,7 +33,8 @@ MonoBehaviour:
   _puzzleDatas:
   - isActive: 0
     indexInSequence: 0
-    puzzleText: "\u043A\u043E\u0434 0000"
+    puzzleText: "\u041A\u043E\u0434 0000."
+    puzzleShortText: ... 0000
     puzzleInfo: "\u041F\u0430\u0440\u043E\u043B\u044C \xAB0000\xBB \u0441\u043B\u0438\u0448\u043A\u043E\u043C
       \u043F\u0440\u043E\u0441\u0442 \u0438 \u043E\u0431\u044B\u0447\u043D\u043E
       \u043B\u0438\u0431\u043E \u043E\u0442\u043A\u043B\u044E\u0447\u0451\u043D \u0441\u0438\u0441\u0442\u0435\u043C\u043E\u0439

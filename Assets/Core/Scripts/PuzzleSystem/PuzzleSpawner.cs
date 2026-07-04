@@ -32,7 +32,7 @@ namespace Core.Scripts.PuzzleSystem
             var puzzle = Instantiate(_puzzleItemPrefab, transform).GetComponent<PuzzleItem>();
             puzzle.SetSpawner(this);
             puzzle.Initialize(puzzleItemDataStruct.isActive, puzzleItemDataStruct.indexInSequence,
-                            puzzleItemDataStruct.puzzleText, puzzleItemDataStruct.puzzleExtendedText, puzzleItemDataStruct.puzzleInfo);
+                            puzzleItemDataStruct.puzzleText, puzzleItemDataStruct.puzzleShortText, puzzleItemDataStruct.puzzleInfo);
             InstantiatePuzzleContainer(puzzle, transform.position, transform);
 
             SpawnedPuzzle = puzzle;

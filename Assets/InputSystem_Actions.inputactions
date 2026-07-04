@@ -1003,6 +1003,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "ToogleChat",
+                    "type": "Button",
+                    "id": "7d34def0-d67b-4488-9486-e56921778b18",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -1025,6 +1034,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "ChatConfirm",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e93bff70-744e-475f-8409-56bf9048f073",
+                    "path": "<Keyboard>/tab",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ToogleChat",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c53e7b1a-1913-49d6-ba4c-28bbd27aaa52",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ToogleChat",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

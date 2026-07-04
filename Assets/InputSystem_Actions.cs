@@ -1025,6 +1025,15 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ToogleChat"",
+                    ""type"": ""Button"",
+                    ""id"": ""7d34def0-d67b-4488-9486-e56921778b18"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -1047,6 +1056,28 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""ChatConfirm"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e93bff70-744e-475f-8409-56bf9048f073"",
+                    ""path"": ""<Keyboard>/tab"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ToogleChat"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c53e7b1a-1913-49d6-ba4c-28bbd27aaa52"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ToogleChat"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1142,6 +1173,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         // Chat
         m_Chat = asset.FindActionMap("Chat", throwIfNotFound: true);
         m_Chat_ChatConfirm = m_Chat.FindAction("ChatConfirm", throwIfNotFound: true);
+        m_Chat_ToogleChat = m_Chat.FindAction("ToogleChat", throwIfNotFound: true);
     }
 
     ~@InputSystem_Actions()
@@ -1439,11 +1471,13 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Chat;
     private List<IChatActions> m_ChatActionsCallbackInterfaces = new List<IChatActions>();
     private readonly InputAction m_Chat_ChatConfirm;
+    private readonly InputAction m_Chat_ToogleChat;
     public struct ChatActions
     {
         private @InputSystem_Actions m_Wrapper;
         public ChatActions(@InputSystem_Actions wrapper) { m_Wrapper = wrapper; }
         public InputAction @ChatConfirm => m_Wrapper.m_Chat_ChatConfirm;
+        public InputAction @ToogleChat => m_Wrapper.m_Chat_ToogleChat;
         public InputActionMap Get() { return m_Wrapper.m_Chat; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1456,6 +1490,9 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @ChatConfirm.started += instance.OnChatConfirm;
             @ChatConfirm.performed += instance.OnChatConfirm;
             @ChatConfirm.canceled += instance.OnChatConfirm;
+            @ToogleChat.started += instance.OnToogleChat;
+            @ToogleChat.performed += instance.OnToogleChat;
+            @ToogleChat.canceled += instance.OnToogleChat;
         }
 
         private void UnregisterCallbacks(IChatActions instance)
@@ -1463,6 +1500,9 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @ChatConfirm.started -= instance.OnChatConfirm;
             @ChatConfirm.performed -= instance.OnChatConfirm;
             @ChatConfirm.canceled -= instance.OnChatConfirm;
+            @ToogleChat.started -= instance.OnToogleChat;
+            @ToogleChat.performed -= instance.OnToogleChat;
+            @ToogleChat.canceled -= instance.OnToogleChat;
         }
 
         public void RemoveCallbacks(IChatActions instance)
@@ -1553,5 +1593,6 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
     public interface IChatActions
     {
         void OnChatConfirm(InputAction.CallbackContext context);
+        void OnToogleChat(InputAction.CallbackContext context);
     }
 }

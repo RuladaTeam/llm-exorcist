@@ -54,12 +54,10 @@ public class Journal : MonoBehaviour
         if (IsJournalOpen)
         {
             _journalAnimator.SetBool("IsOn", false);
-            Debug.Log("Journal was opened now closed" + IsJournalOpen);
         }
         else
         {
             _journalAnimator.SetBool("IsOn", true);
-            Debug.Log("Journal was closed now opened" + IsJournalOpen);
         }
     }
 
@@ -67,7 +65,6 @@ public class Journal : MonoBehaviour
     {
         _journalMask.SetActive(!_journalMask.activeSelf);
         IsJournalOpen = _journalMask.activeSelf;
-        Debug.Log("mask is switched");
     }
 
     private void SetJournalButton_OnCreditBookAction(object sender, EventArgs e)

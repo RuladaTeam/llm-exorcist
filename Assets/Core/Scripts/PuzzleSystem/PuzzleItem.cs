@@ -42,16 +42,16 @@ namespace Core.Scripts.PuzzleSystem
             OnPuzzleDrag -= Puzzle_OnPuzzleDrag;
         }
 
-        public void Initialize(bool isActive, int orderInSequence, string puzzleText, string puzzleExtendedText, string puzzleDescription)
+        public void Initialize(bool isActive, int orderInSequence, string puzzleText, string puzzleShortText, string puzzleDescription)
         {
             IsActive = isActive;
             OrderInSequence = orderInSequence;
-            _puzzleText.text = puzzleText;
+            _puzzleText.text = puzzleShortText;
 
             if (TryGetComponent<HoverableObject>(out _hoverableObject))
             {
                 _hoverableObject.SetGlobalTransform(GetPuzzleGameManager().GetWorkspaceTransform());
-                _hoverableObject.SetHintText(puzzleExtendedText, puzzleDescription);
+                _hoverableObject.SetHintText(puzzleText, puzzleDescription);
             }
         }
 

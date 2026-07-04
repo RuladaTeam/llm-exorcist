@@ -1,3 +1,4 @@
+using Assets.Core.Scripts.Chat;
 using System;
 using UnityEngine;
 
@@ -48,6 +49,10 @@ public class Player : MonoBehaviour
         {
             CanAct = false;
         }
+        else if (ChatInteractor.IsChatOpen)
+        {
+            CanAct = false;
+        }
         else if(_isDialogue)
         {
             _isDialogue = false;
@@ -57,6 +62,11 @@ public class Player : MonoBehaviour
         {
             CanAct = true;
         }
+        else if (!ChatInteractor.IsChatOpen)
+        {
+            CanAct = true;
+        }
+
 
         HandleMovement();
         _playerVisual.UpdateVisual(_movementVector.x, _movementVector.y);

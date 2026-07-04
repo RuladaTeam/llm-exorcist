@@ -52,7 +52,7 @@ namespace Core.Scripts.PuzzleSystem
                 CreatePuzzle(new PuzzleItemDataStruct()
                 {
                     puzzleText = "на наху =)",
-                    puzzleExtendedText = "не ну так-то насрано было на пол ты нахуя ты это базаришь",
+                    puzzleShortText = "не ну так-то насрано было на пол ты нахуя ты это базаришь",
                     puzzleInfo = "Ну что ты фраер сдал назад не по масти я тебе епта бля =)"
                 });
             }
