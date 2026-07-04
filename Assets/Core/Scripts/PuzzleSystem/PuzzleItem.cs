@@ -18,11 +18,11 @@ namespace Core.Scripts.PuzzleSystem
 
         [Header("Visuals")]
         [SerializeField] private TextMeshProUGUI _puzzleText;
-        [SerializeField] private TextMeshProUGUI _puzzleDescription;
 
         private PuzzleItem _overlappingPuzzle; // currently static puzzle that is being overlapped by this puzzle while in drag
         private RectTransform _rectTransform;
         private PuzzleSpawner _spawner;
+        private HoverableObject _hoverableObject;
 
         // todo: not sure if i need this
         private bool _isDraggedNow;
@@ -42,16 +42,16 @@ namespace Core.Scripts.PuzzleSystem
             OnPuzzleDrag -= Puzzle_OnPuzzleDrag;
         }
 
-        public void Initialize(bool isActive, int orderInSequence, string puzzleText, string puzzleDescription)
+        public void Initialize(bool isActive, int orderInSequence, string puzzleText, string puzzleExtendedText, string puzzleDescription)
         {
             IsActive = isActive;
             OrderInSequence = orderInSequence;
             _puzzleText.text = puzzleText;
-            _puzzleDescription.text = puzzleDescription;
 
-            if (TryGetComponent<HoverableObject>(out var hoverableObject))
+            if (TryGetComponent<HoverableObject>(out _hoverableObject))
             {
-                hoverableObject.SetGlobalTransform(GetPuzzleGameManager().GetWorkspaceTransform());
+                _hoverableObject.SetGlobalTransform(GetPuzzleGameManager().GetWorkspaceTransform());
+                _hoverableObject.SetHintText(puzzleExtendedText, puzzleDescription);
             }
         }
 
@@ -70,7 +70,7 @@ namespace Core.Scripts.PuzzleSystem
             //     _wasDragged = true;
             //     OnFirstDrag?.Invoke();
             // }
-
+            _hoverableObject.SetHoverTracking(false);
             ParentContainer.HandleBeginDrag(this);
 
             _isDraggedNow = true;
@@ -103,7 +103,7 @@ namespace Core.Scripts.PuzzleSystem
                 Destroy(gameObject);
                 return;
             }
-
+            _hoverableObject.SetHoverTracking(true);
             ParentContainer.HandleEndDrag(this, _overlappingPuzzle);
 
             _isDraggedNow = false;

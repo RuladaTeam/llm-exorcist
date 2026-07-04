@@ -52,6 +52,7 @@ namespace Core.Scripts.PuzzleSystem
                 CreatePuzzle(new PuzzleItemDataStruct()
                 {
                     puzzleText = "на наху =)",
+                    puzzleExtendedText = "не ну так-то насрано было на пол ты нахуя ты это базаришь",
                     puzzleInfo = "Ну что ты фраер сдал назад не по масти я тебе епта бля =)"
                 });
             }
@@ -90,7 +91,7 @@ namespace Core.Scripts.PuzzleSystem
                 bool correct = true;
                 for (int i = 0; i < correctOrder.Length; i++)
                 {
-                    if (puzzles[i].OrderInSequence.ToString()    != correctOrder[i].ToString() || puzzles[i].IsActive == false)
+                    if (puzzles[i].OrderInSequence.ToString() != correctOrder[i].ToString() || puzzles[i].IsActive == false)
                     {
                         Debug.Log("111111 " + puzzles[i].OrderInSequence);
                         correct = false;

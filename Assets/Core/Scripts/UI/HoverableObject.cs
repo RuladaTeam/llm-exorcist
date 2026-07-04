@@ -1,25 +1,38 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 namespace Core.Scripts.UI
 {
-    public class HoverableObject : MonoBehaviour, IPointerMoveHandler, IPointerEnterHandler, IPointerExitHandler
+    public class HoverableObject : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         [Header("Objects")]
         [SerializeField] private GameObject _onHoverHint;
+        [Header("UI elements")]
+        [SerializeField] private Button _textButton;
+        [SerializeField] private Button _infoButton;
         [Header("Settings")]
+        [SerializeField] private string _textString;
+        [SerializeField] private string _infoString;
         [SerializeField] private float _hintShowDelay = 0.5f;
         [SerializeField] private Transform _globalTransform;
 
         private float _hintShowTimer;
         private bool _isTimerCounting;
+        private bool _isTracking = true;
         private TextMeshProUGUI _hintText;
+        private Transform _beforeHintParent;
 
         private void Start()
         {
             HideHint();
             _hintText = _onHoverHint.GetComponentInChildren<TextMeshProUGUI>();
+
+            _textButton.onClick.AddListener(SetHintLayoutText);
+            _infoButton.onClick.AddListener(SetHintLayoutInfo);
+
+            SetHintLayoutText();
         }
 
         private void Update()
@@ -41,21 +54,36 @@ namespace Core.Scripts.UI
             }
         }
 
-        public void OnPointerEnter(PointerEventData eventData)
+        public void SetHintText(string extendedText, string infoText)
         {
-            _hintShowTimer = 0f;
-            _isTimerCounting = true;
+            _textString = extendedText;
+            _infoString = infoText;
         }
 
-        public void OnPointerMove(PointerEventData eventData)
+        public void SetHoverTracking(bool isTracking)
         {
+            _isTracking = isTracking;
+            _isTimerCounting = isTracking;
+
+            if (!isTracking)
+            {
+                _hintShowTimer = 0f;
+                HideHint();
+            }
+        }
+
+        public void OnPointerEnter(PointerEventData eventData)
+        {
+            if (!_isTracking) return;
+
             _hintShowTimer = 0f;
             _isTimerCounting = true;
-            HideHint();
         }
 
         public void OnPointerExit(PointerEventData eventData)
         {
+            if (!_isTracking) return;
+
             _hintShowTimer = 0f;
             _isTimerCounting = false;
             HideHint();
@@ -69,14 +97,32 @@ namespace Core.Scripts.UI
         private void ShowHint()
         {
             // change transform's parent to avoid other puzzle's overlapping
-            _onHoverHint.transform.SetParent(_globalTransform);
+            _beforeHintParent = transform.parent;
+            transform.SetParent(_globalTransform);
             _onHoverHint.SetActive(true);
         }
 
         private void HideHint()
         {
-            _onHoverHint.transform.SetParent(transform);
+            if (_beforeHintParent != null)
+            {
+                transform.SetParent(_beforeHintParent);
+            }
             _onHoverHint.SetActive(false);
+        }
+
+        private void SetHintLayoutText()
+        {
+            _hintText.text = _textString;
+            _textButton.GetComponent<Image>().color = _textButton.colors.pressedColor;
+            _infoButton.GetComponent<Image>().color = _infoButton.colors.normalColor;
+        }
+
+        private void SetHintLayoutInfo()
+        {
+            _hintText.text = _infoString;
+            _textButton.GetComponent<Image>().color = _textButton.colors.normalColor;
+            _infoButton.GetComponent<Image>().color = _infoButton.colors.pressedColor;
         }
     }
 }

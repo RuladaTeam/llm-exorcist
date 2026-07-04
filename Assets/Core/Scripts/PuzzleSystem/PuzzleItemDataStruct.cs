@@ -9,6 +9,7 @@ namespace Assets.Core.Scripts.PuzzleSystem
         public bool isActive;
         public int indexInSequence;
         public string puzzleText;
+        [Multiline(4)] public string puzzleExtendedText;
         [Multiline(4)] public string puzzleInfo;
     }
 }
