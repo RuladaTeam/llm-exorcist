@@ -83,7 +83,6 @@ namespace Core.Scripts.PuzzleSystem
             {
                 if (puzzles.Length != correctOrder.Length)
                 {
-                    Debug.Log("hiiiii " + puzzles.Length + " " + correctOrder.Length);
                     continue;
                 }
 
@@ -92,7 +91,6 @@ namespace Core.Scripts.PuzzleSystem
                 {
                     if (puzzles[i].OrderInSequence.ToString() != correctOrder[i].ToString() || puzzles[i].IsActive == false)
                     {
-                        Debug.Log("111111 " + puzzles[i].OrderInSequence);
                         correct = false;
                         break;
                     }

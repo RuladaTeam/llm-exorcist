@@ -22,6 +22,8 @@ public class MessageSpawner : MonoBehaviour
 
     public static event Action OnChatEnded;
 
+    public bool IsRequestInProgress { get; private set; } = false;
+
     [SerializeField] private string serverUrl = "http://localhost:8000/predict";
     [Space(30)]
     [SerializeField] private TMP_InputField _inputField;
@@ -29,11 +31,11 @@ public class MessageSpawner : MonoBehaviour
     [SerializeField] private ScrollRect _scrollRect;
     [SerializeField] private GameObject _myMessage;
     [SerializeField] private GameObject _AIMessage;
+    [SerializeField] private GameObject _spaceMessage;
     [Space(30)]
     [SerializeField] private string _levelNameToServer;
 
     private InputSystem_Actions _inputSystem_Actions;
-    private bool _isRequestInProgress = false;
 
     private void OnEnable()
     {
@@ -52,7 +54,7 @@ public class MessageSpawner : MonoBehaviour
 
     public void SendMessageToServer(string text)
     {
-        if (_isRequestInProgress)
+        if (IsRequestInProgress)
         {
             Debug.LogWarning("Запрос уже выполняется!");
             return;
@@ -69,7 +71,23 @@ public class MessageSpawner : MonoBehaviour
 
     private IEnumerator SendMessageCoroutine(string text, string level)
     {
-        _isRequestInProgress = true;
+        IEnumerator GenereteSpace()
+        {
+            yield return new WaitForEndOfFrame();
+            LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)_contentTransform);
+            LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)_scrollRect.transform);
+            yield return new WaitForEndOfFrame();
+            Instantiate(_spaceMessage, _contentTransform);
+            yield return new WaitForEndOfFrame();
+            LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)_contentTransform);
+            LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)_scrollRect.transform);
+            yield return new WaitForEndOfFrame();
+        }
+
+        if (Player.Instance != null)
+            Player.Instance.CanAct = false;
+
+        IsRequestInProgress = true;
         _inputField.interactable = false;
 
         // Формируем URL с параметром msg
@@ -102,6 +120,7 @@ public class MessageSpawner : MonoBehaviour
 
             if (www.result == UnityWebRequest.Result.Success)
             {
+                yield return StartCoroutine(GenereteSpace());
                 try
                 {
                     MessageResponse response = JsonUtility.FromJson<MessageResponse>(www.downloadHandler.text);
@@ -127,6 +146,7 @@ public class MessageSpawner : MonoBehaviour
                     Debug.LogError($"Ошибка парсинга ответа: {e.Message}");
                     Debug.Log($"Сырой ответ сервера: {www.downloadHandler.text}");
                 }
+                yield return StartCoroutine(GenereteSpace());
             }
             else
             {
@@ -135,9 +155,12 @@ public class MessageSpawner : MonoBehaviour
             }
         }
 
-        _isRequestInProgress = false;
+        IsRequestInProgress = false;
         _inputField.interactable = true;
         _inputField.ActivateInputField(); // Возвращаем фокус на поле ввода
+
+        if (Player.Instance != null)
+            Player.Instance.CanAct = true;
     }
 
     private void SpawnMessage(InputAction.CallbackContext obj)
@@ -147,12 +170,12 @@ public class MessageSpawner : MonoBehaviour
             TextMeshProUGUI currentMessage = Instantiate(_myMessage, _contentTransform).transform.GetComponentInChildren<TextMeshProUGUI>();
             currentMessage.text = _inputField.text;
 
+            LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)_contentTransform);
+            LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)_scrollRect.transform);
+
             SendMessageToServer(_inputField.text);
 
             _inputField.text = "";
-
-            LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)_contentTransform);
-            LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)_scrollRect.transform);
 
             _scrollRect.verticalNormalizedPosition = 0f;
         }

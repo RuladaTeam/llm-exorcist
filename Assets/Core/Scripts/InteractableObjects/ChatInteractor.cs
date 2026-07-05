@@ -36,9 +36,11 @@ namespace Assets.Core.Scripts.Chat
 
         private void ToogleChat(InputAction.CallbackContext obj)
         {
-            _messageSpawner.gameObject.SetActive(!_messageSpawner.gameObject.activeSelf);
-            IsChatOpen = _messageSpawner.gameObject.activeSelf;
-
+            if (!_messageSpawner.IsRequestInProgress)
+            {
+                _messageSpawner.gameObject.SetActive(!_messageSpawner.gameObject.activeSelf);
+                IsChatOpen = _messageSpawner.gameObject.activeSelf;
+            }
         }
     }
 }
