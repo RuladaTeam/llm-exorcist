@@ -1,7 +1,6 @@
-using System;
 using Assets.Core.Scripts.PuzzleSystem;
 using DG.Tweening;
-using Unity.VisualScripting;
+using System;
 using UnityEngine;
 
 namespace Core.Scripts.PuzzleSystem

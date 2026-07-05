@@ -1,5 +1,5 @@
-using System;
 using Core.Scripts.UI;
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;

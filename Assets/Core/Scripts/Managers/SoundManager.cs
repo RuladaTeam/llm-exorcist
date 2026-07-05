@@ -27,16 +27,6 @@ public class SoundManager : MonoBehaviour
         Door.OnDoorOpen += Door_OnDoorOpen;
         FadeScreen.OnWaitAfterFadingStarted += FadeScreen_OnWaitAfterFadingStarted;
         InputManager.Instance.OnSecretInputSolved += InputManager_OnSecretInputSolved;
-        if (Timer.Instance != null)
-        {
-            Timer.Instance.OnAlmostOutOfTime += Timer_OnAlmostOutOfTime;
-        }
-        if (SceneManager.GetActiveScene().name == SceneInfo.SECRET_GAME_MODE_SCENE) 
-        {
-            BottomLimit.Instance.OnItemDropped += BottomLimit_OnItemDropped;
-            SecretGameModePlayer.Instance.OnScoreChanged += SecretGameModePlayer_OnScoreChanged;
-        }
-        GameStateManager.OnStateChanged += GameStateManager_OnStateChanged;
         DialogueViewer.OnCreditBookAction += DialogueViewer_OnCreditBookAction;
         DialogueSetter.OnAnswerAction += DialogueSetter_OnAnswerAction;
         ButtonContainer.OnButtonPressed += ButtonContainer_OnButtonPressed;
@@ -47,14 +37,6 @@ public class SoundManager : MonoBehaviour
             PlaySound(_audioClipRefsSO.Alarm, Vector2.zero);
         }
         
-    }
-
-    private void SecretGameModePlayer_OnScoreChanged(object sender, EventArgs e)
-    {
-        if (SecretGameModePlayer.Instance.Score > 0)
-        {
-            PlaySound(_audioClipRefsSO.Success, SecretGameModePlayer.Instance.transform.position);
-        }
     }
 
     private void MenuButton_OnPlayButtonPressed(object sender, EventArgs e)
@@ -88,15 +70,6 @@ public class SoundManager : MonoBehaviour
     private void BottomLimit_OnItemDropped(object sender, EventArgs e)
     {
         PlaySound(_audioClipRefsSO.RuladaFall, Vector3.zero);
-    }
-
-    private void GameStateManager_OnStateChanged(object sender, GameStateManager.OnStateChangedEventArgs e)
-    {
-        // door sound and commissar appearance
-        if (e.CurrentState == GameState.ExamsFailed && Timer.Instance.IsRunning)
-        {
-            PlaySound(_audioClipRefsSO.CommissarOpenDoor, Vector3.zero);
-        }   
     }
 
     private void Timer_OnAlmostOutOfTime(object sender, EventArgs e)
@@ -147,16 +120,6 @@ public class SoundManager : MonoBehaviour
         InputManager.Instance.OnSecretInputSolved -= InputManager_OnSecretInputSolved;
         DialogueViewer.OnCreditBookAction -= DialogueViewer_OnCreditBookAction;
         DialogueSetter.OnAnswerAction -= DialogueSetter_OnAnswerAction;
-        if (Timer.Instance != null)
-        {
-            Timer.Instance.OnAlmostOutOfTime -= Timer_OnAlmostOutOfTime;
-        }
-        if (SceneManager.GetActiveScene().name == SceneInfo.SECRET_GAME_MODE_SCENE) 
-        {
-            BottomLimit.Instance.OnItemDropped -= BottomLimit_OnItemDropped;
-            SecretGameModePlayer.Instance.OnScoreChanged -= SecretGameModePlayer_OnScoreChanged;
-        }
-        GameStateManager.OnStateChanged -= GameStateManager_OnStateChanged;
         ButtonContainer.OnButtonPressed -= ButtonContainer_OnButtonPressed;
         MenuButton.OnPlayButtonPressed -= MenuButton_OnPlayButtonPressed;
     }

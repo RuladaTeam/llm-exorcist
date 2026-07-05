@@ -18,12 +18,12 @@ public class DialogueBaseClassDrawer : PropertyDrawer
         float currentY = position.y; // Текущая позиция по оси Y
 
         // Рисуем выпадающий список для выбора типа диалога
-        Rect typeRect = new Rect(position.x, currentY, position.width, EditorGUIUtility.singleLineHeight);
+        Rect typeRect = new(position.x, currentY, position.width, EditorGUIUtility.singleLineHeight);
         EditorGUI.PropertyField(typeRect, typeOfDialogue);
         currentY += EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing;
 
         // Рисуем поле _symbolTime
-        Rect symbolTimeRect = new Rect(position.x, currentY, position.width, EditorGUIUtility.singleLineHeight);
+        Rect symbolTimeRect = new(position.x, currentY, position.width, EditorGUIUtility.singleLineHeight);
         EditorGUI.PropertyField(symbolTimeRect, symbolTime);
         currentY += EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing;
 
@@ -31,14 +31,14 @@ public class DialogueBaseClassDrawer : PropertyDrawer
         if (typeOfDialogue.enumValueIndex == (int)TypeOfDialogue.SimplePhrases)
         {
             // Показываем _simplePhrase
-            Rect phraseRect = new Rect(position.x, currentY, position.width, EditorGUI.GetPropertyHeight(simplePhrase));
+            Rect phraseRect = new(position.x, currentY, position.width, EditorGUI.GetPropertyHeight(simplePhrase));
             EditorGUI.PropertyField(phraseRect, simplePhrase, true);
             currentY += EditorGUI.GetPropertyHeight(simplePhrase) + EditorGUIUtility.standardVerticalSpacing;
         }
         else if (typeOfDialogue.enumValueIndex == (int)TypeOfDialogue.Answers)
         {
             // Показываем _answers
-            Rect answersRect = new Rect(position.x, currentY, position.width, EditorGUI.GetPropertyHeight(answers));
+            Rect answersRect = new(position.x, currentY, position.width, EditorGUI.GetPropertyHeight(answers));
             EditorGUI.PropertyField(answersRect, answers, true);
             currentY += EditorGUI.GetPropertyHeight(answers) + EditorGUIUtility.standardVerticalSpacing;
         }

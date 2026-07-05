@@ -6,15 +6,12 @@ public class TriggerSpeech : InteractableObject
     [Space(30)]
     [SerializeField] private bool _isStatable = true;
     [SerializeField] GameState _nessecaryState;
-    private Collider2D collider2D;
     private DialogueViewer _dialogueViewer;
     private bool _isSpeechEnabled;
 
     private void Start()
     {
-        collider2D = GetComponent<Collider2D>();
         _dialogueViewer = GetComponent<DialogueViewer>();
-        collider2D.isTrigger = true;
     }
 
     public override bool TrySelect()

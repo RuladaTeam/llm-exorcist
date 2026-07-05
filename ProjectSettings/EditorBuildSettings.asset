@@ -5,47 +5,14 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Core/Scenes/NotToUseInGame/SampleScene.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 1
-    path: Assets/Core/Scenes/MainMenuScene.unity
-    guid: 9e604680d3f7fea0aa278b3d2f6ad961
-  - enabled: 1
-    path: Assets/Core/Scenes/KitomirHomeScene.unity
-    guid: 14e0c7d05eabc1a21ae6b17860e2e56d
-  - enabled: 1
-    path: Assets/Core/Scenes/CorridorScene.unity
-    guid: 718e2049c8433d26fa6f952347a13960
-  - enabled: 1
-    path: Assets/Core/Scenes/MathsAuditoriumScene.unity
-    guid: 45d853f414732d7d79a23539aaaf436c
-  - enabled: 1
-    path: Assets/Core/Scenes/ITAuditoriumScene.unity
-    guid: d9251e730d395c7e7826af21ba2e3405
-  - enabled: 1
-    path: Assets/Core/Scenes/PhysicsAuditoriumScene.unity
-    guid: 97d562559290355b5919bf775afe784d
-  - enabled: 1
-    path: Assets/Core/Scenes/HappyEndScene.unity
-    guid: ff95282e1bd6805dfbac2207a1bc3a4d
-  - enabled: 1
-    path: Assets/Core/Scenes/SecretGameModeScene.unity
-    guid: abf923309e49455d3995eaed7531fad7
-  - enabled: 1
-    path: Assets/Core/Scenes/SadEndScene.unity
-    guid: b8f15dcf39e3b4adfacc66d3fedcc134
-  - enabled: 1
-    path: Assets/Core/Scenes/NewMainScenes/Map.unity
+    path: Assets/Core/Scenes/Map.unity
     guid: 4bffd09f895453b47afda7c5c45642d9
   - enabled: 1
-    path: Assets/Core/Scenes/NewMainScenes/LVL1.unity
+    path: Assets/Core/Scenes/LVL1.unity
     guid: a3f4366864ad9444b96b386dc7cd51e7
   - enabled: 1
-    path: Assets/Core/Scenes/NewMainScenes/LVL2.unity
-    guid: b62775f9de539ff49b4b143cb3ed9dbc
-  - enabled: 1
-    path: Assets/Core/Scenes/NewMainScenes/LVL3.unity
+    path: Assets/Core/Scenes/LVL3.unity
     guid: 22942f06d4f4e9c4390562661ba70ad1
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}

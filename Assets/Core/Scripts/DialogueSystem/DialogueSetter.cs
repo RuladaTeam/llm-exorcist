@@ -3,8 +3,8 @@ using System.Collections.Generic;
 
 public class DialogueSetter
 {
-    private DialogueBunch _dialogueBunch;
-    private List<DialogueBaseClass> _nextSimplePhrases;
+    private readonly DialogueBunch _dialogueBunch;
+    private readonly List<DialogueBaseClass> _nextSimplePhrases;
     public static event EventHandler<AnswerActionEventArgs> OnAnswerAction;
     public static event EventHandler OnGoodResultDialogue;
     public class AnswerActionEventArgs : EventArgs

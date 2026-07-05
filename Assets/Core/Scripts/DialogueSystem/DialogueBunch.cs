@@ -1,8 +1,6 @@
 using Assets.Core.Scripts.PuzzleSystem;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.Rendering;
 
 [CreateAssetMenu(menuName = "Custom/DialogueBunch"), System.Serializable]
 public class DialogueBunch : ScriptableObject

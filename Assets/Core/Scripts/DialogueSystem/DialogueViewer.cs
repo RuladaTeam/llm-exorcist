@@ -1,10 +1,10 @@
-using UnityEngine;
-using TMPro;
-using UnityEngine.UI;
-using System.Collections;
-using System;
-using DG.Tweening;
 using Assets.Core.Scripts.PuzzleSystem;
+using DG.Tweening;
+using System;
+using System.Collections;
+using TMPro;
+using UnityEngine;
+using UnityEngine.UI;
 
 public class DialogueViewer : MonoBehaviour
 {
@@ -32,7 +32,6 @@ public class DialogueViewer : MonoBehaviour
     [SerializeField, Tooltip("must contain MenuButton script")] private GameObject _answerButtonPrefab;
     private bool _isWriting = false;
     private bool _canResulting;
-    private bool _isTimerEnding = false;
     private Vector2 _endGradePos;
     private Transform _answersChamberTransform;
     private Coroutine _writingCoroutine;
@@ -71,12 +70,6 @@ public class DialogueViewer : MonoBehaviour
 
     private void Update()
     {
-        if (Timer.Instance != null && !Timer.Instance.IsRunning && !_isTimerEnding)
-        {
-            StartCoroutine(Ender());
-            _isTimerEnding = true;
-        }
-
         if (IsCurrentViewerActive() && CurrentDialogueElement != null)
         {
             if (CurrentDialogueElement.TypeOfDialogue == TypeOfDialogue.SimplePhrases && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.E)) && _simplePhraseChamber.text.Length > 1)

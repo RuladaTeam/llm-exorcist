@@ -2281,11 +2281,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 967698161154102403, guid: 1a88c8ce063cb0969b51588779fa8679, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.77
+      value: 1.8900013
       objectReference: {fileID: 0}
     - target: {fileID: 967698161154102403, guid: 1a88c8ce063cb0969b51588779fa8679, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.45
+      value: 2.454828
       objectReference: {fileID: 0}
     - target: {fileID: 1095566339964294882, guid: 1a88c8ce063cb0969b51588779fa8679, type: 3}
       propertyPath: _puzzleOrders.Array.size

@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Networking;
@@ -80,18 +79,22 @@ public class MessageSpawner : MonoBehaviour
 
         Debug.Log($"Отправка запроса: {fullUrl}");
 
-        MessageRequest requestData = new MessageRequest();
-        requestData.level = level;
-        requestData.text = text;
+        MessageRequest requestData = new()
+        {
+            level = level,
+            text = text
+        };
 
         string jsonData = JsonUtility.ToJson(requestData);
         byte[] bodyRaw = System.Text.Encoding.UTF8.GetBytes(jsonData);
 
         // Используем GET запрос вместо POST
-        using (UnityWebRequest www = new UnityWebRequest("http://localhost:8000/predict", "POST"))
+        using (UnityWebRequest www = new("http://localhost:8000/predict", "POST"))
         {
-            www.uploadHandler = new UploadHandlerRaw(bodyRaw);
-            www.uploadHandler.contentType = "application/json"; // Crucial: tells the server it's JSON
+            www.uploadHandler = new UploadHandlerRaw(bodyRaw)
+            {
+                contentType = "application/json" // Crucial: tells the server it's JSON
+            };
 
             www.downloadHandler = new DownloadHandlerBuffer();
 

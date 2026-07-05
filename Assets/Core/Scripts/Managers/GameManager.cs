@@ -3,7 +3,6 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
-using static MapManager;
 
 
 public class GameManager : MonoBehaviour
@@ -12,7 +11,6 @@ public class GameManager : MonoBehaviour
     public static bool IsGamePaused { get; private set; }
     
     [SerializeField] private FadeScreen _fadeScreen;
-    [SerializeField] private Spawner[] _spawnerList;
     [SerializeField] private GameObject _pauseMenu;
     
     private Coroutine _fadeScreenCoroutine;
@@ -33,29 +31,10 @@ public class GameManager : MonoBehaviour
         MapManager.OnMapButtonClick += MapManager_OnMapButtonClick;
         InputManager.Instance.OnPauseAction += InputManager_OnPauseAction;
         
-        
-        // change state depending on current scene to easier test inside editor
-        // for example when starting not from main menu scene
         if (GameStateManager.State == GameState.FirstEntry 
             && SceneManager.GetActiveScene().name != SceneInfo.MAIN_MENU_SCENE)
         {
             GameStateManager.State = SceneInfo.SceneStates[SceneManager.GetActiveScene().name];
-        }
-
-        if (SceneManager.GetActiveScene().name == SceneInfo.CORRIDOR_SCENE)
-        {
-            foreach (var spawner in _spawnerList)
-            {
-                if (SceneInfo.SceneNamesMap[spawner.Scene] == GameStateManager.PreviousSceneName)
-                {
-                    Player.Instance.gameObject.transform.position = spawner.transform.position;
-                }
-            }
-        }
-
-        if ((GameStateManager.State is GameState.ExamsPassed or GameState.ExamsFailed) && Timer.Instance != null)
-        {
-            Timer.Instance.DestroyTimer();
         }
 
         _pauseMenu.SetActive(false);
@@ -78,11 +57,6 @@ public class GameManager : MonoBehaviour
         {
             Pause();
         }
-    }
-
-    private void MenuButton_OnPlayButtonPressed(object sender, EventArgs e)
-    {
-        StartCoroutine(LoadScene(SceneInfo.KITOMIR_HOME_SCENE, 2.2f));
     }
 
     private void Door_OnDoorOpen(object sender, Door.OnDoorOpenEventArgs e)
@@ -120,22 +94,7 @@ public class GameManager : MonoBehaviour
         }
         _isSceneLoading = true;
         _canBePaused = false;
-        float waitAfterFadingDuration = 0f;
-
-        //if (sceneName != SceneInfo.CORRIDOR_SCENE && GameStateManager.State != SceneInfo.SceneStates[sceneName])
-        //{
-        //    GameStateManager.State = SceneInfo.SceneStates[sceneName];
-        //}
-        
-        if (GameStateManager.State == GameState.AtHome && sceneName == SceneInfo.CORRIDOR_SCENE)
-        {
-            waitAfterFadingDuration = 13f;
-            GameStateManager.State = GameState.PhysicsExam;
-        }
-        else if (GameStateManager.State == GameState.ExamsPassed && sceneName == SceneInfo.HAPPY_END_SCENE)
-        {
-            waitAfterFadingDuration = 13f;
-        }
+        float waitAfterFadingDuration = 0f;     
 
         GameStateManager.PreviousSceneName = SceneManager.GetActiveScene().name;
 
@@ -150,11 +109,6 @@ public class GameManager : MonoBehaviour
 
     private void Pause()
     {
-        if (Player.Instance != null)
-        {
-            Animator playerAnimator = Player.Instance.GetComponentInChildren<Animator>();
-            if (playerAnimator.GetBool("IsSleeping")) return;
-        }
         if (_canBePaused && !DialogueViewer.IsGoing)
         {
             if (!IsGamePaused)
@@ -162,14 +116,9 @@ public class GameManager : MonoBehaviour
                 Time.timeScale = 0f;
                 _pauseMenu.SetActive(true);
                 IsGamePaused = true;
-                if (SceneManager.GetActiveScene().name is SceneInfo.HAPPY_END_SCENE or SceneInfo.SAD_END_SCENE)
-                {
-                    MusicManager.Instance.PauseSoundtrack();
-                }
 
                 if (Player.Instance != null)
                 {
-                    
                     Player.Instance.CanAct = false;
                 }
             }
@@ -190,23 +139,13 @@ public class GameManager : MonoBehaviour
         }
 
         IsGamePaused = false;
-        if (SceneManager.GetActiveScene().name is SceneInfo.HAPPY_END_SCENE or SceneInfo.SAD_END_SCENE)
-        {
-            MusicManager.Instance.ResumeSoundtrack();
-        }
     }
 
     private void OnDisable()
     {
         Door.OnDoorOpen -= Door_OnDoorOpen;
         MapManager.OnMapButtonClick -= MapManager_OnMapButtonClick;
-        MenuButton.OnPlayButtonPressed -= MenuButton_OnPlayButtonPressed;
         InputManager.Instance.OnPauseAction -= InputManager_OnPauseAction;
-
-        if (SceneManager.GetActiveScene().name == SceneInfo.MAIN_MENU_SCENE)
-        {
-            StartForMenu.OnMenuButtonContainerAppear -= StartForMenu_OnMenuButtonContainerAppear;
-        }
     }
 
     public static void TimeScaleZeroInvoke(object sender, EventArgs e, EventHandler eventToInvoke)
@@ -233,11 +172,6 @@ public class GameManager : MonoBehaviour
     {
         IsGamePaused = false;
         Time.timeScale = 1f;
-        if (Timer.Instance != null)
-        {
-            Timer.Instance.DestroyTimer();
-        }
-        //GameStateManager.State = GameState.;
 
         SceneManager.LoadScene(SceneInfo.MAP_SCENE);
     }
