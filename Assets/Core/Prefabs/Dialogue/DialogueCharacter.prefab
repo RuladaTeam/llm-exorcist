@@ -638,6 +638,10 @@ PrefabInstance:
       propertyPath: _dialogueBunch
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 5905011266673196597, guid: 640d450748e8c1141856fcf1752e0cfe, type: 3}
+      propertyPath: _isDestroyingInTheEnd
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7356506262055992083, guid: 640d450748e8c1141856fcf1752e0cfe, type: 3}
       propertyPath: m_hasFontAssetChanged
       value: 0

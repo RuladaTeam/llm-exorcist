@@ -51,18 +51,6 @@ public class MusicManager : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        if (SceneManager.GetActiveScene().name == SceneInfo.HAPPY_END_SCENE)
-        {
-            if (_audioSource.time >=_audioSource.clip.length && !_hasMusicFinished)
-            {
-                _hasMusicFinished = true;
-                OnHappySoundtrackFinished?.Invoke(this, EventArgs.Empty);
-            }
-        }
-    }
-
     private void FadeScreen_OnFadingStarted(object sender, FadeScreen.OnFadingStartedEventArgs e)
     {
         StartCoroutine(Subside(e.FadingDuration));
